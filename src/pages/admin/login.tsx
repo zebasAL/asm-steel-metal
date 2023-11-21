@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import SignInForm from "../../components/auth/SignInForm";
+import SignInForm from "~/components/auth/SignInForm";
 
 export default function Login() {
   return (

@@ -1,8 +1,8 @@
 import Head from "next/head";
 import nookies from "nookies";
-import Dashboard from "components/dashboard";
-import Shell from "components/shell";
-import Content from "components/content/Content";
+import Dashboard from "~/components/dashboard";
+import Shell from "~/components/shell";
+import Content from "~/components/content/Content";
 
 export default function Messages() {
   return (

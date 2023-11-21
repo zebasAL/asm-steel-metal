@@ -1,9 +1,9 @@
 import React from "react";
-import Dashboard from "../components/dashboard";
-import Splash from "../components/splash";
+import Dashboard from "~/components/dashboard";
+import Splash from "~/components/splash";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import nookies from "nookies";
-import { userIsLoggedIn } from "../firebase/auth/utils";
+import { userIsLoggedIn } from "~/firebase/auth/utils";
 
 export default function index(
   // props: InferGetServerSidePropsType<typeof getServerSideProps>

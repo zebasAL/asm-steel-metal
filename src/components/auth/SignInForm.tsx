@@ -3,9 +3,9 @@ import React from "react";
 import nookies from "nookies";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useAuth } from "../../firebase/auth/auth";
-import firebase from "../../firebase/clientApp";
-import LogoSvg from "../../images/svg/logo.svg";
+import { useAuth } from "~/firebase/auth/auth";
+import firebase from "~/firebase/clientApp";
+import LogoSvg from "~/images/svg/logo.svg";
 
 const validationSchema = z
   .object({

@@ -2,7 +2,7 @@ import React from "react";
 import Svg from "../../svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { signOut } from "../../../utils/genericUtils";
+import { signOut } from "~/utils/genericUtils";
 
 type Props = {
   /** Whether the navbar options are appearing on a small screen, or a collapsed navbar */
