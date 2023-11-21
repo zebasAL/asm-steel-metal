@@ -1,10 +1,14 @@
-import firebaseAdmin from "../adminApp";
+import firebase from "../clientApp";
 
-export const userIsLoggedIn = async (cookies: any) => {
+export const userIsLoggedIn = async (): Promise<boolean> => {
+  return !!firebase.auth().currentUser
+};
+
+export const usePreviousSession = async (): Promise<string | undefined> => {
   try {
-    await firebaseAdmin.auth().verifyIdToken(cookies.token);
-    return true;
+    const idToken = await firebase.auth().currentUser?.getIdToken(true)
+    return idToken;
   } catch (error) {
-    return false;
+    return undefined;
   }
 };

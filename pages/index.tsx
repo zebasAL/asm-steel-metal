@@ -6,20 +6,19 @@ import nookies from "nookies";
 import { userIsLoggedIn } from "../firebase/auth/utils";
 
 export default function index(
-  props: InferGetServerSidePropsType<typeof getServerSideProps>
+  // props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
     <div>
-      {!props.authenticated && <Splash />}
-      {props.authenticated && <Dashboard />}
+      <Dashboard />
     </div>
   );
 }
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const cookies = nookies.get(ctx);
-  const authenticated = await userIsLoggedIn(cookies);
-  return {
-    props: { authenticated },
-  };
-}
+// export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+//   const cookies = nookies.get(ctx);
+//   const authenticated = await userIsLoggedIn(cookies);
+//   return {
+//     props: { authenticated },
+//   };
+// }
