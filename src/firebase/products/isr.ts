@@ -1,4 +1,5 @@
 import firebase from '../clientApp';
+import firebaseAdmin from '../adminApp';
 
 export type Product = {
   params: {
@@ -21,16 +22,15 @@ export async function batchUpdateIsrUploadedStatus(productIds: Product[] | []): 
 }
 
 
-export async function getNoneIsrUploadedProducts(): Promise<Product[] | []> {
+export async function getNoneIsrUploadedProducts(db: firebaseAdmin.firestore.Firestore): Promise<Product[] | []> {
   try {
-    const productsCollection = firebase.firestore().collection("products").where('is_active', '==', true).where('isr_uploaded', '==', false);
+    const productsCollection = db.collection("products").where('is_active', '==', true).where('isr_uploaded', '==', false);
     const batchSize = 50;
     let lastDoc = null;
     let products: Product[] = [];
 
- 
     while (true) {
-      const query: firebase.firestore.Query<firebase.firestore.DocumentData> = lastDoc ? productsCollection.startAfter(lastDoc).limit(batchSize): productsCollection.limit(batchSize)
+      const query: firebaseAdmin.firestore.Query<firebase.firestore.DocumentData> = lastDoc ? productsCollection.startAfter(lastDoc).limit(batchSize): productsCollection.limit(batchSize)
       const querySnapshot = await query?.get();
 
       if (querySnapshot?.empty || !querySnapshot?.docs?.length) {

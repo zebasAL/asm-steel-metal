@@ -23,10 +23,10 @@ const ProductoPage = ({ product }: { product: Product["params"] }) => {
 };
 
 export async function getStaticPaths<GetStaticPaths>() {
-  const products = await getNoneIsrUploadedProducts()
-  console.log("products", products)
-  // batchUpdateIsrUploadedStatus(products)
-  return { paths: products, fallback: true };
+  const response = await fetch('api/products/IsrHandler/', { method: 'GET' })
+  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+  const data = await response.json();
+  return { paths: data, fallback: true };
 } 
 
 export async function getStaticProps<GetStaticProps>({ params }: Product) {
