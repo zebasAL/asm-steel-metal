@@ -1,10 +1,9 @@
+import type { ReactElement } from 'react'
+import type { NextPageWithLayout } from '~/pages/_app'
 import Head from "next/head";
-import nookies from "nookies";
-import Dashboard from "~/components/dashboard";
-import Shell from "~/components/shell";
-import Content from "~/components/content/Content";
+import Dashboard from '~/components/layouts/Dashboard'
 
-export default function Messages() {
+const Page: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -14,14 +13,20 @@ export default function Messages() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <Dashboard />
-         
-        <Shell>
-          <Content title="Messages">
-            <>Messages</>
-          </Content>
-        </Shell>
+        <h2>
+          Messages
+        </h2>
       </main>
     </>
   );
 }
+ 
+Page.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Dashboard>
+      {page}
+    </Dashboard>
+  )
+}
+ 
+export default Page

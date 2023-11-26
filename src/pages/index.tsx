@@ -1,17 +1,21 @@
-import React from "react";
-import Dashboard from "~/components/dashboard";
-import Splash from "~/components/splash";
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import nookies from "nookies";
-import { userIsLoggedIn } from "~/firebase/auth/utils";
+import Head from "next/head";
 
 export default function index(
   // props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <>
+      <Head>
+        <title>ASM STEEL-METAL</title>
+        <meta name="description" content={`ASM STEEL-METAL es una empresa dedicada a entregar al sector productivo aceros y metales especiales`} />
+        <meta name="keywords" content={`asm, steel, metal, acero, asm-steel-metal, asm steel-metal`} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main>
+        
+        <h1>Detalles del Producto</h1>
+      </main>
+    </>
   );
 }
 
