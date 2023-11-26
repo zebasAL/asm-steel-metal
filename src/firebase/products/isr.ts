@@ -1,13 +1,13 @@
 import firebase from '../clientApp';
 import firebaseAdmin from '../adminApp';
 
-export type Product = {
+export type StaticProduct = {
   params: {
     id: string,
   }
 }
 
-export async function batchUpdateIsrUploadedStatus(productIds: Product[] | []): Promise<void> {
+export async function batchUpdateIsrUploadedStatus(productIds: StaticProduct[] | []): Promise<void> {
   if (!productIds?.length) return
 
   const firestore = firebase.firestore();
@@ -22,12 +22,12 @@ export async function batchUpdateIsrUploadedStatus(productIds: Product[] | []): 
 }
 
 
-export async function getNoneIsrUploadedProducts(db: firebaseAdmin.firestore.Firestore): Promise<Product[] | []> {
+export async function getNoneIsrUploadedProducts(db: firebaseAdmin.firestore.Firestore): Promise<StaticProduct[] | []> {
   try {
     const productsCollection = db.collection("products").where('is_active', '==', true).where('isr_uploaded', '==', false);
     const batchSize = 50;
     let lastDoc = null;
-    let products: Product[] = [];
+    let products: StaticProduct[] = [];
 
     while (true) {
       const query: firebaseAdmin.firestore.Query<firebase.firestore.DocumentData> = lastDoc ? productsCollection.startAfter(lastDoc).limit(batchSize): productsCollection.limit(batchSize)
@@ -47,7 +47,6 @@ export async function getNoneIsrUploadedProducts(db: firebaseAdmin.firestore.Fir
 
     return products ?? []
   } catch (error) {
-    console.log("error")
     return []
   }
 }
