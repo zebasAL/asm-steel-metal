@@ -15,19 +15,24 @@ export type Product = {
   is_active: boolean,
   isr_uploaded: boolean,
   locale: string,
+  createdAt: string,
+}
+
+export type ProductResponse = {
+  success: boolean,
+  data: Product[],
 }
 
 export async function getAllProducts({ page = 1, per_page = 50 }: ProductParams = {}): Promise<Product[]> {
 
   const firestore = firebaseAdmin.firestore();
   const querySnapshot = await firestore.collection("products")
-    .startAt((page - 1) * per_page)
-    .limit(per_page)
+    .orderBy("createdAt", "desc")
     .get();
 
   const products: Product[] = [];
-  
-  querySnapshot.forEach((doc) => {
+
+  querySnapshot.docs.forEach((doc) => {
     const productData = doc.data() as Product;
     products.push(productData);
   });

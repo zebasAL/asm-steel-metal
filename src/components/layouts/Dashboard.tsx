@@ -1,19 +1,21 @@
 import React from "react";
-import Shell from "~/components/shell";
+import Shell from "~/components";
 
 type Props = {
   title: string;
   children: JSX.Element;
 };
 
-export default function Dashboard({ children } : { children: JSX.Element }) {
+export default function Dashboard({ title = "Dashboard", children } : Props) {
   return (
     <>
-      <Shell>
-        <Content title="Dashboard">
+      <div className="h-screen flex grid-cols-custom-sidenav-layout">
+        <SideNav />
+        {children}
+      </div>
+      <Content title={title}>
           {children}
         </Content>
-      </Shell>
     </>
   );
 }

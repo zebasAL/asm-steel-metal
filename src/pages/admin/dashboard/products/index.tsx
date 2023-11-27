@@ -1,7 +1,10 @@
+import type { ReactElement } from 'react'
+import type { NextPageWithLayout } from '~/pages/_app'
 import Head from "next/head";
 import ProductsList from "~/sections/admin/dashboard/products/ProductsList"
+import Dashboard from '~/components/layouts/Dashboard'
 
-export default function Page () {
+const ProductsPage: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -16,3 +19,13 @@ export default function Page () {
     </>
   );
 }
+
+ProductsPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Dashboard>
+      {page}
+    </Dashboard>
+  )
+}
+ 
+export default ProductsPage

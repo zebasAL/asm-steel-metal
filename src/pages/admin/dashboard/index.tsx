@@ -3,7 +3,7 @@ import type { NextPageWithLayout } from '~/pages/_app'
 import Head from "next/head";
 import Dashboard from '~/components/layouts/Dashboard'
 
-const Page: NextPageWithLayout = () => {
+const DashboardPage: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ const Page: NextPageWithLayout = () => {
   );
 }
  
-Page.getLayout = function getLayout(page: ReactElement) {
+DashboardPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <Dashboard>
       {page}
@@ -29,4 +29,4 @@ Page.getLayout = function getLayout(page: ReactElement) {
   )
 }
  
-export default Page
+export default DashboardPage
