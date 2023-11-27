@@ -20,7 +20,7 @@ export type Product = {
 
 export type ProductResponse = {
   success: boolean,
-  data: Product[],
+  results: Product[],
 }
 
 export async function getAllProducts({ page = 1, per_page = 50 }: ProductParams = {}): Promise<Product[]> {

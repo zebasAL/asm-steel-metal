@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '~/pages/_app'
 import Head from "next/head";
-import ProductsList from "~/sections/admin/dashboard/products/ProductsList"
 import Dashboard from '~/components/layouts/Dashboard'
+import ProductsSection from "~/sections/admin/dashboard/products/ProductsSection"
 
 const ProductsPage: NextPageWithLayout = () => {
   return (
@@ -13,8 +13,8 @@ const ProductsPage: NextPageWithLayout = () => {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <ProductsList />
+      <main className="w-full">
+        <ProductsSection />
       </main>
     </>
   );

@@ -8,7 +8,7 @@ export default async function products(req: NextApiRequest, res: NextApiResponse
     switch (method) {
       case 'GET':
         const products = await getAllProducts(req.query)
-        res.status(200).json({ success: true, data: products });
+        res.status(200).json({ success: true, results: products });
         break;
 
       // case 'POST':
