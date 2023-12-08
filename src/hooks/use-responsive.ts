@@ -1,56 +1,59 @@
-// @mui
-import { useTheme, Breakpoint } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-
-// ----------------------------------------------------------------------
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 type ReturnType = boolean;
 
 type Query = 'up' | 'down' | 'between' | 'only';
 
+type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xs'
+
 type Value = Breakpoint | number;
 
-export function useResponsive(query: Query, start?: Value, end?: Value): ReturnType {
-  const theme = useTheme();
-
-  const mediaUp = useMediaQuery(theme.breakpoints.up(start as Value));
-
-  const mediaDown = useMediaQuery(theme.breakpoints.down(start as Value));
-
-  const mediaBetween = useMediaQuery(theme.breakpoints.between(start as Value, end as Value));
-
-  const mediaOnly = useMediaQuery(theme.breakpoints.only(start as Breakpoint));
-
-  if (query === 'up') {
-    return mediaUp;
-  }
-
-  if (query === 'down') {
-    return mediaDown;
-  }
-
-  if (query === 'between') {
-    return mediaBetween;
-  }
-
-  return mediaOnly;
+const breakpoints = {
+  xs: '0px',
+  sm: '480px',
+  md: '768px',
+  lg: '976px',
+  xl: '1440px',
 }
 
-// ----------------------------------------------------------------------
+const getMediaQuery = (query: Query, initial: Value, end?: Value) => {
+  const initialWidth = initial ? `${typeof initial === 'number' ? initial + 'px' : breakpoints[initial]}` : '';
+  const maxWidth = end ? `${typeof end === 'number' ? end + 'px' : breakpoints[end]}` : '';
 
-type BreakpointOrNull = Breakpoint | null;
+  switch (query) {
+    case 'up':
+      return `(min-width: ${initialWidth})`;
+    case 'down':
+      return `(max-width: ${initialWidth})`;
+    case 'between':
+      return `(min-width: ${initialWidth}) and (max-width: ${maxWidth})`;
+    case 'only':
+      return `(min-width: ${initialWidth}) and (max-width: ${maxWidth})`;
+    default:
+      return '';
+  }
+};
 
-export function useWidth() {
-  const theme = useTheme();
+// -------------------------------------------------------------------------
 
-  const keys = [...theme.breakpoints.keys].reverse();
+export default function useResponsive(defaultValue: boolean, query: Query, initial: Value, end?: Value): ReturnType {
+  const [matchMedia, setMatchMedia] = useState<boolean>(defaultValue ?? false)
 
-  return (
-    keys.reduce((output: BreakpointOrNull, key: Breakpoint) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const matches = useMediaQuery(theme.breakpoints.up(key));
+  useLayoutEffect(() => {
+    const mediaQuery = getMediaQuery(query, initial, end);
+    const mql = window.matchMedia(mediaQuery);
+    setMatchMedia(mql.matches)
 
-      return !output && matches ? key : output;
-    }, null) || 'xs'
-  );
-}
+    const handleQueryChange = (e) => {
+      setMatchMedia(mql.matches)
+    }
+
+    mql.addEventListener('change', handleQueryChange);
+
+    return () => {
+      mql.removeEventListener('change', handleQueryChange);
+    };
+  }, []);
+
+  return matchMedia;
+};

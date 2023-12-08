@@ -1,10 +1,10 @@
 import React, { createContext, useContext } from "react";
-import Svg from "../../svg/";
+import Svg from "../../../svg";
 import NavBarOptions from "../navBar/NavBarOptions";
 import Link from "next/link";
 import { signOut } from "~/utils/genericUtils";
 import LogoSvg from "~/images/svg/logo.svg";
-import GitHubSvg from "../../svg/GitHubSvg";
+import GitHubSvg from "../../../svg/GitHubSvg";
 import useLocalStorage from "~/utils/hooks/useLocalStorage";
 
 const CollapsedContext = createContext(false);

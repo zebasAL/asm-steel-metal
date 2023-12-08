@@ -1,26 +1,40 @@
-import z from 'zod'
+import z from 'zod';
+import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
 import firebase from "~/firebase/clientApp";
+
+import TextField from "~/components/ui/TextField";
 import type { Product } from "~/firebase/products/products";
   
 const validationSchema = z
   .object({
-    email: z.string().min(1, { message: "Email is required" }).email({
-      message: "Must be a valid email",
-    }),
-    password: z
-      .string()
-      .min(6, { message: "Password must be atleast 6 characters" }),
-  })
+    createdAt: z.string(),
+    description: z.string(),
+    fav: z.boolean(),
+    is_active: z.boolean(),
+    isr_uploaded: z.boolean(),
+    locale: z.string(),
+    main_photo: z.string(),
+    secondary_photo: z.string(),
+    name: z.string(),
+    secondary: z.string(),
+    // sections: z.array(z.unknown()),
+    short_description: z.string(),
+  });
   
 type ValidationSchema = z.infer<typeof validationSchema>;
 
 export default function NewProductForm() {
+  const [image, setImage] = useState<string>("")
+  const mainInputRef = useRef<HTMLInputElement>(null)
+
   const {
     register,
     handleSubmit,
     setError,
+    watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -34,32 +48,50 @@ export default function NewProductForm() {
 
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === 'auth/wrong-password') {
-          setError('password', { message: 'Wrong password.' });
-        } else {
-          setError('email', { message: "Invalid login credentials" });
-        }
+        console.log("error", error)
       });
   }
 
+  const handleImage = (e: any) => {
+    const selectedImage = mainInputRef.current?.files ?? []
+    if (selectedImage[0]) {
+      const url = URL.createObjectURL(selectedImage[0])
+      setValue("main_photo", url)
+    }
+  }
+
+  // const handleDrop = useCallback(
+  //   (acceptedFiles) => {
+  //     setValue('image', 
+  //     ...acceptedFiles.map((file) =>
+  //       Object.assign(file, {
+  //         preview: URL.createObjectURL(file)
+  //       })
+  //     ))
+  //   },
+  //   [setValue]
+  // )
+
+  console.log("main_photo", watch("main_photo"))
+
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <img className="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-      </a>
+    <div>
+      <TextField {...register("name")} id="title-textfield" label={"Nombre del Producto"} placeholder="Nombre del Producto" className="mb-2 font-semibold text-lg tracking-tighter" />
+
+      <div className="min-h-[300px] relative bg-gray-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <input type="file" accept="image/*" onChange={handleImage} ref={mainInputRef} className="min-w-full min-h-[300px] absolute cursor-pointer opacity-0"  />
+        <img src={watch("main_photo") ?? ""} alt="main_product_image" className="rounded-t-lg h-[300px] w-full object-contain" />
+      </div>
+
+      <TextField {...register("name")} id="title-textfield" label={"Nombre del Producto"} placeholder="Descripcion" className="mb-2 font-semibold text-lg tracking-tighter" />
+
       <div className="p-5">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-        <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Read more
-          <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-          </svg>
-        </a>
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Noteworthy technology acquisitions 2021
+        </h5>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+        </p>
       </div>
     </div>
   )

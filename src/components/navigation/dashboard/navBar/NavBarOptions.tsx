@@ -1,5 +1,5 @@
 import React from "react";
-import Svg from "../../svg";
+import Svg from "../../../svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut } from "~/utils/genericUtils";

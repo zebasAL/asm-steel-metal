@@ -1,4 +1,4 @@
-export { useActiveLink } from './use-active-link';
+export { useActiveLink } from './useActiveLink';
 //
 export { useParams } from './use-params';
 export { useRouter } from './use-router';
