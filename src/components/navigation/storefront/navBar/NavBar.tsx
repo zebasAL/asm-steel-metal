@@ -1,14 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { Transition } from "@headlessui/react";
-import { useState } from "react";
 import { useNavItems } from "~/routes/hooks/useNavItems";
-import NavBarOptions from "./NavBarOptions";
+import DropDownList from "./dropDown";
+import SearchBar from "./SearchBar";
 import logoASM from "~/images/logo_asm.jpg";
-import useResponsive from "~/hooks/use-responsive";
+import UploadIcon from "~/images/svg/uploadIcon.svg";
+import useResponsive from "~/hooks/useResponsive";
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
   const { navItems } = useNavItems()
   const responsive = useResponsive(false, 'down', 'sm')
 
@@ -21,43 +20,21 @@ export default function NavBar() {
 
           {/* <Tabs /> */}
 
-          <NavBarOptions options={navItems} />
+          <div className="flex items-center justify-center gap-5">
+            <DropDownList options={navItems} />
+            <p>Contaco</p>
+            <button className="cursor-pointer bg-primary-200 rounded-xl p-2">
+              <div className="flex">
+                <UploadIcon height="1.5rem" width="1.5rem" />
+                <p>Carta de Presentacion</p>
+              </div>
+            </button>
+          </div>
 
-          <div>2</div>
+          <SearchBar />
 
         </div>
       </div>
-
-      {/* {smallScreen && (
-        <>
-          <NavItem link="/settings" svgIcon={<Svg.CogSvg />} title="Settings" />
-          <a
-            onClick={() => {}}
-            className="flex items-center no-underline text-blue-50 hover:text-blue-100 p-3 rounded-md"
-          >
-            <Svg.SignOutSvg />
-            <div className="font-bold pl-3">Sign Out</div>
-          </a>
-        </>
-      )} */}
-
-      <Transition
-        show={isOpen}
-        enter="transition ease-out duration-100 transform"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="transition ease-in duration-75 transform"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
-      >
-        {() => (
-          <div className="md:hidden float-right" id="mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 w-screen bg-gray-800">
-              <NavBarOptions options={[]} />
-            </div>
-          </div>
-        )}
-      </Transition>
     </nav>
   );
 }

@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['panelyacanalados.com'],
+    domains: ['panelyacanalados.com', 'flowbite.com', "panelyacanalados.com", "www.magnacero.com"],
   },
   webpack(config) {
     config.module.rules.push({

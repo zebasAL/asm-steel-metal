@@ -1,9 +1,8 @@
 import { useState, Fragment } from "react";
-import { Transition } from '@headlessui/react'
 import { DropDownOption } from "~/routes/hooks/useNavItems";
 import DropDownModal from "./DropDownModal"
 
-export default function NavBarDropDown({ options }: { options: DropDownOption[] }) {
+export default function DropDownList({ options }: { options: DropDownOption[] }) {
   const [openModal, setOpenModal] = useState<boolean | number>(false)
 
   const handleOpenModel = (index: number) => {
