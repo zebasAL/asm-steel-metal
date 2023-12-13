@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logoASM from "~/images/logo_asm.jpg";
+import logoASM from "~/images/full_logo.png";
 
 export default function Footer() {
 
@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
 
-            <Image src={logoASM} alt="logo" height={70} width={70} className="mb-7" />
+            <Image src={logoASM} alt="logo" height={150} width={150} className="mb-7" />
 
             <div className="flex sm:justify-center sm:mt-0">
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">

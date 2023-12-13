@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useNavItems } from "~/routes/hooks/useNavItems";
 import DropDownList from "./dropDown";
 import SearchBar from "./SearchBar";
-import logoASM from "~/images/logo_asm.jpg";
+import logoASM from "~/images/mid_logo.png";
 import UploadIcon from "~/images/svg/uploadIcon.svg";
 import useResponsive from "~/hooks/useResponsive";
 
@@ -16,7 +16,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          <Image src={logoASM} alt="logo" height={70} width={70} />
+          <Image src={logoASM} alt="logo" height={150} width={150} />
 
           {/* <Tabs /> */}
 
