@@ -122,3 +122,7 @@ I used plenty of handy resources to help me understand how the different Next.js
 - [Firebase docs](https://firebase.google.com/docs)
 - [Tailwind docs](https://tailwindcss.com/docs/)
 - [Vercel docs](https://vercel.com/docs)
+
+// create config
+
+// create storage

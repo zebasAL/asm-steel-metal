@@ -9,6 +9,7 @@
 # next.js
 /.next/
 /out/
+robots.txt
 
 # production
 /build
@@ -23,6 +24,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+**.env
+.env.*
+.env
 .env.local
 .env.development.local
 .env.test.local
