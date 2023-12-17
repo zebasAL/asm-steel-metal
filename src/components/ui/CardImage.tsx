@@ -15,8 +15,8 @@ export default function CardImage({
 }: Product) {
 
   return (
-    <Link legacyBehavior href="/" passHref>
-      <div className="group cursor-pointer transition-all duration-600 hover:shadow-lg max-w-[350px] w-full bg-white dark:bg-gray-800">
+    <Link href="/" passHref>
+      <div className="group cursor-pointer transition-all duration-600 hover:shadow-lg max-w-[350px] w-full shadow-md">
 
         <div className="relative w-full">
           <div className="absolute w-full h-full opacity-30 transition-all duration-600 ease-in-out bottom-10 group-hover:bottom-0 group-hover:bg-gray-800 z-10" />

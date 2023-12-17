@@ -12,7 +12,7 @@ export default function useOnClickOutside<T extends HTMLElement = HTMLElement>(r
     };
 
     document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
+    document.addEventListener('touchstart', listener,  { passive: true });
 
     return () => {
       document.removeEventListener('mousedown', listener);

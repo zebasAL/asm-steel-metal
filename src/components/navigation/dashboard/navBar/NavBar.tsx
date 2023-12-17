@@ -1,5 +1,4 @@
 import React from "react";
-import { Transition } from "@headlessui/react";
 import { useState } from "react";
 import NavBarOptions from "./NavBarOptions";
 import LogoSvg from "~/images/svg/logo.svg";
@@ -62,23 +61,12 @@ export default function NavBar() {
           </div>
         </div>
 
-        <Transition
-          show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          {() => (
-            <div className="md:hidden float-right" id="mobile-menu">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 w-screen bg-gray-800">
-                <NavBarOptions smallScreen={true} />
-              </div>
-            </div>
-          )}
-        </Transition>
+        <div className="md:hidden float-right" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 w-screen bg-gray-800">
+            <NavBarOptions smallScreen={true} />
+          </div>
+        </div>
+
       </nav>
     </>
   );
