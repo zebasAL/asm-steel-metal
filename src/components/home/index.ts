@@ -1,10 +1,10 @@
-import HeroSlider from "./HeroSlider"
-import FeaturedProducts from "./FeaturedProducts"
+import Hero from "./Hero"
+import FeaturedProducts from "./featuerdProducts"
 import Categories from "./Categories"
 import Content from "./Content"
 
 export {
-  HeroSlider,
+  Hero,
   FeaturedProducts,
   Categories,
   Content,

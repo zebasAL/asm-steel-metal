@@ -1,6 +1,31 @@
 module.exports = {
   images: {
-    domains: ['panelyacanalados.com', 'flowbite.com', "panelyacanalados.com", "www.magnacero.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'panelyacanalados.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'flowbite.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.magnacero.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   webpack(config) {
     config.module.rules.push({

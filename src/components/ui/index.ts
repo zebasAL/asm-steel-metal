@@ -5,6 +5,9 @@ import LoadingButton from "./LoadingButton"
 import ConfirmModal from "./ConfirmModal"
 import CardImage from "./CardImage"
 import CardLarge from "./CardLarge"
+import ImgWithBlurredCaption from "./ImgWithBlurredCaption"
+
+
 
 export {
   TabButton,
@@ -14,4 +17,5 @@ export {
   ConfirmModal,
   CardImage,
   CardLarge,
+  ImgWithBlurredCaption,
 }

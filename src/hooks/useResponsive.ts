@@ -8,7 +8,7 @@ type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xs'
 
 type Value = Breakpoint | number;
 
-const breakpoints = {
+export const breakpoints = {
   xs: '0px',
   sm: '480px',
   md: '768px',
@@ -36,15 +36,17 @@ const getMediaQuery = (query: Query, initial: Value, end?: Value) => {
 
 // -------------------------------------------------------------------------
 
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 export default function useResponsive(defaultValue: boolean, query: Query, initial: Value, end?: Value): ReturnType {
   const [matchMedia, setMatchMedia] = useState<boolean>(defaultValue ?? false)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const mediaQuery = getMediaQuery(query, initial, end);
     const mql = window.matchMedia(mediaQuery);
     setMatchMedia(mql.matches)
 
-    const handleQueryChange = (e) => {
+    const handleQueryChange = () => {
       setMatchMedia(mql.matches)
     }
 

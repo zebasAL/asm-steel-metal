@@ -1,7 +1,8 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import withMT from "@material-tailwind/react/utils/withMT"
 
-export default {
+export default withMT({
   content: ["./src/**/*.tsx"],
   darkMode: 'class',
   theme: {
@@ -27,11 +28,25 @@ export default {
         },
       },
       colors: {
-        primary: { "50": "#fefce8", "100": "#fef9c3", "200": "#fef08a", "300": "#fde047", "400": "#facc15", "500": "#eab308", "600": "#ca8a04", "700": "#a16207", "800": "#854d0e", "900": "#713f12", "950": "#422006" }
+        primary: {
+          main: '#191944',
+          light: '#394077',
+          lighter: '#576094',
+          dark: '#0f0a28',
+          darker: '#050318',
+        },
+        secondary: {
+          main: '#191944',
+          light: '#394077',
+          lighter: '#576094',
+          dark: '#0f0a28',
+          darker: '#050318',
+        }
       },
       fontFamily: {
         sans: ["Noto Sans", ...fontFamily.sans],
         body: [
+          'Font Sans',
           'Noto Sans',
           'Inter',
           'ui-sans-serif',
@@ -47,4 +62,4 @@ export default {
     },
   },
   plugins: [],
-} satisfies Config;
+})

@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 // @mui
 // components
 import { MotionViewport, varFade } from '~/components/animate';

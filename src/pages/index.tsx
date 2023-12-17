@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { HeroSlider, FeaturedProducts, Categories, Content } from "~/components/home"
+import { Hero, FeaturedProducts, Categories, Content } from "~/components/home"
 
 export default function index(
   // props: InferGetServerSidePropsType<typeof getServerSideProps>
@@ -14,11 +14,11 @@ export default function index(
       </Head>
       <main>
         
-        <HeroSlider />
+        <Hero />
+
+        <FeaturedProducts />
 
         <div className="m-8">
-          <FeaturedProducts />
-
           <Categories />
         </div>
 
