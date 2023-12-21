@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function Contact({ children }: Props) {
-  const [selectedLocation, setLocation] = useState(address[0])
+  const [selectedLocation, setLocation] = useState<Address | null>(address[0] ?? null)
 
   const handleLocation = (index: Address) => {
     setLocation(index)
