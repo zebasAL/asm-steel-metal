@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "src",
+      "use": "@now/node",
+      "config": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "ignore": [
+    "/src/**/*.eslintignore",
+    "/src/**/*.eslintcache",
+    "/src/**/*.js",
+    "README.md"
+  ]
+}
