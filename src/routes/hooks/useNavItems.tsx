@@ -188,7 +188,7 @@ const navbarItems = [
 
 export const useNavItems = () => {
   // const { data: dataLang } = useLanguageVerbose()
-  const [navItems, setNavItems] = useState<DropDownOption[]>(navbarItems)
+  const [navItems] = useState<DropDownOption[]>(navbarItems)
 
   return { navItems }
 }

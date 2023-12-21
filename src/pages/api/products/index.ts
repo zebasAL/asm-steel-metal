@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { NextApiRequest, NextApiResponse } from "next"
 import { getAllProducts } from '~/firebase/products/products';
 

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useActiveLink } from "~/routes/hooks"
 
 type NavItemProps = {
@@ -20,4 +19,4 @@ export default function NavItem({ link, svgIcon, image, title, expanded = true }
       {expanded && <div className="font-bold pl-3">{title}</div>}
     </Link>
   );
-};
+}

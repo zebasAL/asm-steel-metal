@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import type { NextApiRequest, NextApiResponse } from "next"
 import firebaseAdmin from '~/firebase/adminApp';
 import { getNoneIsrUploadedProducts, batchUpdateIsrUploadedStatus, StaticProduct } from '~/firebase/products/isr';

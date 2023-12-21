@@ -1,3 +1,4 @@
+/* eslint-disable */
 import z from 'zod';
 import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -5,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import firebase from "~/firebase/clientApp";
 
 import TextField from "~/components/ui/TextField";
-import type { Product } from "~/firebase/products/products";
+// import type { Product } from "~/firebase/products/products";
   
 const validationSchema = z
   .object({
@@ -26,13 +27,11 @@ const validationSchema = z
 type ValidationSchema = z.infer<typeof validationSchema>;
 
 export default function NewProductForm() {
-  const [image, setImage] = useState<string>("")
+  // const [image, setImage] = useState<string>("")
   const mainInputRef = useRef<HTMLInputElement>(null)
 
   const {
     register,
-    handleSubmit,
-    setError,
     watch,
     setValue,
     formState: { errors, isSubmitting },

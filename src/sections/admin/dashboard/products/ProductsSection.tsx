@@ -47,12 +47,12 @@ export default function ProductsSection () {
 // ------------------------------------------------------------------------------------------------
 
 const ProductList = () => {
-  const { data, error, isLoading } = useSWR('/api/products/', () => apiRoutes.products.getAll<ProductResponse>({ page: 1 }))
+  const { data } = useSWR('/api/products/', () => apiRoutes.products.getAll<ProductResponse>({ page: 1 }))
 
   return (
     <>
-      {data?.results.map((item) => (
-        <ProductCard {...item} />
+      {data?.results.map((item, index) => (
+        <ProductCard key={index} {...item} />
       ))}
     </>
   )

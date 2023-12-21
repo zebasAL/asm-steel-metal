@@ -1,14 +1,13 @@
 import Head from "next/head";
 import { GetServerSidePropsContext } from 'next';
-import { useRouter } from 'next/router';
-import { parseISO, format } from "date-fns";
+// import { useRouter } from 'next/router';
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { categories } from "~/routes/hooks/useNavItems"
 
 export default function Product({ product }: { product: string }) {
-  const router = useRouter();
-  const { productId } = router.query;
+  // const router = useRouter();
+  // const { productId } = router.query;
 
   return (
     <>
@@ -50,7 +49,7 @@ export default function Product({ product }: { product: string }) {
                             <div className="block">
                               <div className="w-full text-lg font-semibold">AISI/SAE P20 + Ni</div>
                             </div>
-                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
                           </label>
                         </li>
                         <li>
@@ -59,7 +58,7 @@ export default function Product({ product }: { product: string }) {
                             <div className="block">
                               <div className="w-full text-lg font-semibold">AISI/SAE P20</div>
                             </div>
-                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
                           </label>
                         </li>
                       </ul>
@@ -75,7 +74,7 @@ export default function Product({ product }: { product: string }) {
                           <div className="me-2">
                             <span className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white pb-2">
                               <svg fill="none" aria-hidden="true" className="w-5 h-5 flex-shrink-0" viewBox="0 0 20 21">
-                                <g clip-path="url(#clip0_3173_1381)">
+                                <g clipPath="url(#clip0_3173_1381)">
                                   <path fill="#E2E5E7" d="M5.024.5c-.688 0-1.25.563-1.25 1.25v17.5c0 .688.562 1.25 1.25 1.25h12.5c.687 0 1.25-.563 1.25-1.25V5.5l-5-5h-8.75z" />
                                   <path fill="#B0B7BD" d="M15.024 5.5h3.75l-5-5v3.75c0 .688.562 1.25 1.25 1.25z" />
                                   <path fill="#CAD1D8" d="M18.774 9.25l-3.75-3.75h3.75v3.75z" />

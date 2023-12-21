@@ -1,10 +1,15 @@
 import Link from "next/link";
 import Label from "~/components/ui/label";
 
+type LabelProps = {
+  categories: string[],
+  nomargin: boolean,
+}
+
 export default function CategoryLabel({
   categories,
   nomargin = false
-}) {
+}: LabelProps) {
   console.log("categories", categories)
   return (
     <div className="flex gap-3">

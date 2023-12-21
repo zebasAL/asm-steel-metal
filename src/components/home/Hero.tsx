@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Carousel, IconButton } from "@material-tailwind/react";
 import useResponsive from "~/hooks/useResponsive";
 

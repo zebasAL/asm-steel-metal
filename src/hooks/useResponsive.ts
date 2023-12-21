@@ -58,4 +58,4 @@ export default function useResponsive(defaultValue: boolean, query: Query, initi
   }, []);
 
   return matchMedia;
-};
+}
