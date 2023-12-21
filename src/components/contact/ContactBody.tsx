@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Dialog } from "@material-tailwind/react";
 import { Address } from "~/mock/locations/companyAddress"
 
-export default function ContactBody({ location }: { location: Address }) {
+export default function ContactBody({ location }: { location: Address | null }) {
   // const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto()
 
   // const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null)
@@ -53,7 +53,7 @@ export default function ContactBody({ location }: { location: Address }) {
         </div>
       </div>
 
-      {location.iframeSrc && (
+      {location?.iframeSrc && (
         <iframe
           src={location.iframeSrc}
           width="600"
