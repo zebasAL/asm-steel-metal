@@ -20,18 +20,10 @@
     "paths": {
       "~/*": ["./src/*"],
       "~sectionBoard/*": ["./src/sections/admin/dashboard/*"],
-      "~pageBoard/*": ["./src/page/admin/dashboard/*"]
+      "~pageBoard/*": ["./src/page/admin/dashboard/*"],
     },
-    "plugins": [
-      { "name": "next" }
-    ]
+    "plugins": [{ "name": "next" }],
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

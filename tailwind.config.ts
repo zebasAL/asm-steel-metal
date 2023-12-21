@@ -3,7 +3,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 import withMT from "@material-tailwind/react/utils/withMT"
 
 export default withMT({
-  content: ["./src/**/*.tsx"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: 'class',
   theme: {
     screens: {
