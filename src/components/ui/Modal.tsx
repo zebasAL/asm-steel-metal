@@ -33,8 +33,13 @@ export default function Modal({ isOpen = false, onClose, children, id, className
   }
 
   return createPortal(
-    <div tabIndex={-1} aria-hidden="true" className={`flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 max-h-[100vh] mb-10`}>
-      <div className={`relative p-4 w-full max-w-2xl max-h-[80vh] overflow-y-scroll mt-0 ${className}`}>
+    <div
+      tabIndex={-1}
+      aria-hidden="true"
+      className={`flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 min-h-[100vh] max-h-[100vh]`}
+      // style={{ height: 'fit-content' }}
+    >
+      <div className={`relative p-4 w-full max-w-2xl max-h-[80vh] overflow-y-scroll my-auto ${className}`}>
         <div className="relative bg-white rounded-lg dark:bg-gray-700 shadow-xl border" ref={contentRef}>
           {children}
         </div>
