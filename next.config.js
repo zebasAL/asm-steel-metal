@@ -1,4 +1,7 @@
 module.exports = {
+  // eslint: {
+  //   dirs: ['pages', 'utils'],
+  // },
   images: {
     remotePatterns: [
       {

@@ -1,14 +1,13 @@
 import Head from "next/head";
 import { GetServerSidePropsContext } from 'next';
-import { useRouter } from 'next/router';
-import { parseISO, format } from "date-fns";
+// import { useRouter } from 'next/router';
+import { format } from "date-fns";
 import Image from "next/image";
-import Link from "next/link";
 import { categories } from "~/routes/hooks/useNavItems"
 
 export default function Product({ product }: { product: string }) {
-  const router = useRouter();
-  const { productId } = router.query;
+  // const router = useRouter();
+  // const { productId } = router.query;
 
   return (
     <>
@@ -50,7 +49,7 @@ export default function Product({ product }: { product: string }) {
                             <div className="block">
                               <div className="w-full text-lg font-semibold">AISI/SAE P20 + Ni</div>
                             </div>
-                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
                           </label>
                         </li>
                         <li>
@@ -59,7 +58,7 @@ export default function Product({ product }: { product: string }) {
                             <div className="block">
                               <div className="w-full text-lg font-semibold">AISI/SAE P20</div>
                             </div>
-                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                            <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
                           </label>
                         </li>
                       </ul>
@@ -75,7 +74,7 @@ export default function Product({ product }: { product: string }) {
                           <div className="me-2">
                             <span className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white pb-2">
                               <svg fill="none" aria-hidden="true" className="w-5 h-5 flex-shrink-0" viewBox="0 0 20 21">
-                                <g clip-path="url(#clip0_3173_1381)">
+                                <g clipPath="url(#clip0_3173_1381)">
                                   <path fill="#E2E5E7" d="M5.024.5c-.688 0-1.25.563-1.25 1.25v17.5c0 .688.562 1.25 1.25 1.25h12.5c.687 0 1.25-.563 1.25-1.25V5.5l-5-5h-8.75z" />
                                   <path fill="#B0B7BD" d="M15.024 5.5h3.75l-5-5v3.75c0 .688.562 1.25 1.25 1.25z" />
                                   <path fill="#CAD1D8" d="M18.774 9.25l-3.75-3.75h3.75v3.75z" />
@@ -212,10 +211,10 @@ el proceso de soldadura.</span>
             <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
               <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Very easy this was to integrate</h3>
-                <p className="my-4">If you care for your time, I hands down would go with this."</p>
+                <p className="my-4">If you care for your time, I hands down would go with this.</p>
               </blockquote>
               <figcaption className="flex items-center justify-center ">
-                <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture" />
+                <Image className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture" />
                 <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
                   <div>Bonnie Green</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
@@ -225,10 +224,10 @@ el proceso de soldadura.</span>
             <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
               <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Solid foundation for any project</h3>
-                <p className="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
+                <p className="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!</p>
               </blockquote>
               <figcaption className="flex items-center justify-center ">
-                <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture" />
+                <Image className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture" />
                 <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
                   <div>Roberta Casas</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
@@ -238,10 +237,10 @@ el proceso de soldadura.</span>
             <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e dark:bg-gray-800 dark:border-gray-700">
               <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Mindblowing workflow</h3>
-                <p className="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
+                <p className="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application.</p>
               </blockquote>
               <figcaption className="flex items-center justify-center ">
-                <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture" />
+                <Image className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture" />
                 <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
                   <div>Jese Leos</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
@@ -251,10 +250,10 @@ el proceso de soldadura.</span>
             <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
               <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Efficient Collaborating</h3>
-                <p className="my-4">You have many examples that can be used to create a fast prototype for your team."</p>
+                <p className="my-4">You have many examples that can be used to create a fast prototype for your team.</p>
               </blockquote>
               <figcaption className="flex items-center justify-center ">
-                <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture" />
+                <Image className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture" />
                 <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
                   <div>Joseph McFall</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400">CTO at Google</div>
@@ -270,6 +269,7 @@ el proceso de soldadura.</span>
 
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  console.log("ctx", ctx.params)
 
   const selectedProduct = ((categories ?? [])[0]?.products ?? [])[0]
   return {

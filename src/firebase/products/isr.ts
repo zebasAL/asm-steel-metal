@@ -27,13 +27,20 @@ export async function getNoneIsrUploadedProducts(db: firebaseAdmin.firestore.Fir
     const productsCollection = db.collection("products").where('is_active', '==', true).where('isr_uploaded', '==', false);
     const batchSize = 50;
     let lastDoc = null;
-    let products: StaticProduct[] = [];
+    const products: StaticProduct[] = [];
 
-    while (true) {
-      const query: firebaseAdmin.firestore.Query<firebase.firestore.DocumentData> = lastDoc ? productsCollection.startAfter(lastDoc).limit(batchSize): productsCollection.limit(batchSize)
+    let shouldContinue = true;
+
+    while (shouldContinue) {
+      const query: firebaseAdmin.firestore.Query<firebase.firestore.DocumentData> =
+        lastDoc
+          ? productsCollection.startAfter(lastDoc).limit(batchSize)
+          : productsCollection.limit(batchSize);
+
       const querySnapshot = await query?.get();
 
       if (querySnapshot?.empty || !querySnapshot?.docs?.length) {
+        shouldContinue = false;
         break;
       }
 

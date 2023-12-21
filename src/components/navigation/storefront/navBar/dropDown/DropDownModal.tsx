@@ -50,7 +50,7 @@ export default function DropDownModal({ option, isOpen, onClose }: DropDownModal
 
               <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-center">
                 {categoryProducts.products?.map((product) => (
-                  <div className="cursor-pointer p-2 rounded-md text-black hover:text-primary-lighter hover:bg-gray-100 transition-all hover:pl-8">
+                  <div key={product.title} className="cursor-pointer p-2 rounded-md text-black hover:text-primary-lighter hover:bg-gray-100 transition-all hover:pl-8">
                     <Link href={`/productos/${product.title}`} className="text-lg flex items-center justify-center">
                       {product.title}
                       <svg className="ml-2 my-auto w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

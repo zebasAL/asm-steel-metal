@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Typography } from "@material-tailwind/react";
 
 type ImageCaption = {

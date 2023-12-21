@@ -1,11 +1,11 @@
 import z from 'zod'
 import React from "react";
 import nookies from "nookies";
-import { useForm, SubmitHandler, Resolver } from "react-hook-form"
+import Image from 'next/image';
+import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "~/firebase/auth/auth";
 import firebase from "~/firebase/clientApp";
-import LogoSvg from "~/images/svg/logo.svg";
 
 const validationSchema = z
   .object({
@@ -52,7 +52,7 @@ function SignInForm() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <img src="https://www.asm-steelmetal.com/images/logo%20asm.jpg?crc=367328868" width="100" height="100" alt="ASM-METAL-STEEL" />
+        <Image src="https://www.asm-steelmetal.com/images/logo%20asm.jpg?crc=367328868" width="100" height="100" alt="ASM-METAL-STEEL" />
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

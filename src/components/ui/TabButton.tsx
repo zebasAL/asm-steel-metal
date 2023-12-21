@@ -11,7 +11,6 @@ export default function TabButton({
   onClick,
   children,
 }: ButtonProps) {
-  const [] = useState()
 
   return (
     <div className="">

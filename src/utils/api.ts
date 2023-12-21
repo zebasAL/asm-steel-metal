@@ -1,5 +1,9 @@
 import axios from "axios"
 
+type ApiParams = {
+  [key: string]: string | number;
+};
+
 export async function serverFetch(url: string, options = {}) {
   const currentDomain = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -14,6 +18,6 @@ export async function serverFetch(url: string, options = {}) {
 
 export const apiRoutes = {
   products: {
-    getAll: async <T>(params: any) => (await axios.get<T>('/api/products/', { params })).data
+    getAll: async <T>(params: ApiParams) => (await axios.get<T>('/api/products/', { params })).data
   },
 }

@@ -13,7 +13,7 @@ interface ReturnType {
 }
 
 export function useBoolean(defaultValue?: boolean): ReturnType {
-  const [value, setValue] = useState(!!defaultValue);
+  const [value, setValue] = useState(Boolean(defaultValue));
 
   const onTrue = useCallback(() => {
     setValue(true);

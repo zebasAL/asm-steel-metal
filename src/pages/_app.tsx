@@ -6,7 +6,7 @@ import MainLayout from "~/components/layouts/MainLayout"
 // import { AuthProvider } from "~/firebase/auth/auth";
 
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
  
@@ -16,7 +16,7 @@ type AppPropsWithLayout = AppProps & {
 
 // -------------------------------------------------------------------
 
-function App({ Component, pageProps, router }: AppPropsWithLayout) {
+function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page)
 
   // const isDashboard = router.pathname.includes("dashboard") && (<MainLayout><Component {...pageProps} /></MainLayout>)

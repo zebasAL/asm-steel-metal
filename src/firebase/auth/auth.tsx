@@ -6,7 +6,7 @@ type SetUserFunction = React.Dispatch<React.SetStateAction<firebaseClient.User |
 
 const AuthContext = createContext<{ user: firebaseClient.User | null, setUser: SetUserFunction }>({
   user: null,
-  setUser: () => {},
+  setUser: () => null,
 });
 
 export function AuthProvider({ children }: any) {

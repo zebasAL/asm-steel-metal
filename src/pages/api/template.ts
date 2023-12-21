@@ -6,6 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const method = req.method;
     const { name = 'World' } = req.query;
+    const body = req.body;
 
     // const db = firebaseAdmin.firestore();
     // const hasTitle = searchParams.has('title');
@@ -17,7 +18,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         break;
       case 'POST':
         // Handle POST request
-        const body = req.body;
         res.status(201).json({ message: 'This is a POST request' });
         break;
       // Add cases for other HTTP methods as needed

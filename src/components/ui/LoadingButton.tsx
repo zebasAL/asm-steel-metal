@@ -1,8 +1,8 @@
 type LoadingBUttonProps = {
-  type?: "button" | "submit" | "reset" | undefined,
+  type?: "button" | "submit" | "reset",
   loading?: boolean,
   disabled?: boolean,
-  onClick?: () => void,
+  onClick: () => void,
   children?: string | JSX.Element,
 }
 

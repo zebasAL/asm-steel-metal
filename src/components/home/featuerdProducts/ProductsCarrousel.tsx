@@ -43,9 +43,8 @@ export default function ProductsCarrousel({ products }: { products: ProductCateg
     const productsList = (productsGroup ?? []).map((group, index) => (
       <Link href="/" key={index} className="mx-[50px] grid gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 py-10">
         {group.map((product) => (
-          <div className="relative group h-96 w-full rounded-xl hover:shadow-xl hover:shadow-gray-500 hover:bg-black transition">
+          <div key={product.name} className="relative group h-96 w-full rounded-xl hover:shadow-xl hover:shadow-gray-500 hover:bg-black transition">
             <ImgWithBlurredCaption
-              key={product.name}
               image={product.img}
               alt={`producto-${product.name}`}
               title={product.name}

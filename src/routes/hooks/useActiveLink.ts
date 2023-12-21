@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 
-export function useActiveLink(path: string = "", deep = true): boolean {
+export function useActiveLink(path: string, deep = true): boolean {
   const pathname = usePathname();
 
   const checkPath = path.startsWith('#');

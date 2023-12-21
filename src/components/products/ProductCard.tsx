@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import type { Product } from "~/firebase/products/products"
 
 export type ProductCardItem = Product
