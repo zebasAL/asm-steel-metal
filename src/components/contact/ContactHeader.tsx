@@ -3,8 +3,8 @@ import { Address } from "~/mock/locations/companyAddress"
 
 type ContactHeader = {
   locations: Address[] | [],
-  selectedLocation: number,
-  handleClickLocation: (arg: number) => void,
+  selectedLocation: Address,
+  handleClickLocation: (arg: Address) => void,
 }
 
 export default function ContactHeader({ locations, selectedLocation, handleClickLocation }: ContactHeader) {
@@ -34,8 +34,8 @@ export default function ContactHeader({ locations, selectedLocation, handleClick
           {locations.map((address, addressIndex) => (
             <LocationBox
               key={address.title}
-              onClick={() => handleClickLocation(addressIndex)}
-              selected={selectedLocation === addressIndex}
+              onClick={() => handleClickLocation(address)}
+              selected={selectedLocation.title === address.title}
               title={address.title}
               address={address.address}
               phone={address.phone}

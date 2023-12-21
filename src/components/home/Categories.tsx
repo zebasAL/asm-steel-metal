@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useNavItems } from "~/routes/hooks/useNavItems";
 import { CardLarge } from "~/components/ui"
 
@@ -14,7 +15,9 @@ export default function Categories() {
   
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 justify-center">
           {(categories?.items ?? []).map((item) => (
-            <CardLarge key={item.title} image={item.image ?? ""} title={item.title} description={item.description} />
+            <Link href={`/categorias/${item.title}`}>
+              <CardLarge key={item.title} image={item.image ?? ""} title={item.title} description={item.description} />
+            </Link>
           ))}
         </div>
         
