@@ -11,8 +11,11 @@ const cx = (...classNames: Array<string | boolean>) =>
 
 type List = {
   id: string,
-  post: {
-
+  product: {
+    name: string,
+    image: string,
+    publishedAt?: string,
+    _createdAt?: string,
   },
   aspect: string,
 }
@@ -105,7 +108,7 @@ export default function PostList({
       hover:bg-[length:100%_3px]
       group-hover:bg-[length:100%_10px]
       dark:from-purple-800 dark:to-purple-900">
-                  {product.title}
+                  {product.name}
                 </span>
               </Link>
             </h2>
@@ -145,14 +148,14 @@ export default function PostList({
               <span className="text-xs text-gray-300 dark:text-gray-600">
                 &bull;
               </span>
-              <time
+              {/* <time
                 className="truncate text-sm"
                 dateTime={product?.publishedAt || product._createdAt}>
                 {format(
                   (product?.publishedAt || product._createdAt),
                   "MMMM dd, yyyy"
                 )}
-              </time>
+              </time> */}
             </div>
           </div>
         </div>

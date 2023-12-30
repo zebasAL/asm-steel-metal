@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Hero, FeaturedProducts, Categories, Content } from "~/components/home"
+import categoryProducts from "~/mock/products/categoryProducts";
 
-export default function index(
+export default function Home(
   // props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
@@ -29,10 +30,13 @@ export default function index(
   );
 }
 
-// export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-//   const cookies = nookies.get(ctx);
-//   const authenticated = await userIsLoggedIn(cookies);
-//   return {
-//     props: { authenticated },
-//   };
-// }
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+
+//  const hola = categoryProducts = ctx
+
+  return {
+    props: { 
+      img: '',
+     },
+  };
+}

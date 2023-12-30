@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import { useState } from "react"
 import { Button } from "@material-tailwind/react";
 import ProductsCarrousel from "./ProductsCarrousel"
@@ -5,6 +6,8 @@ import productsByCategory, { ProductCategory } from "~/mock/products/featuredPro
 
 
 export default function FeaturedProducts() {
+  const { t, lang } = useTranslation('home')
+
   const [selectedProducts, setProducts] = useState<ProductCategory>(productsByCategory[0] ?? { title: '', products: [] })
 
   const handleSetProducts = (selectedProducts: ProductCategory) => {
@@ -15,7 +18,9 @@ export default function FeaturedProducts() {
     <div className="relative backdrop-blur-20 bg-gradient-to-r from-black via-gray-300 to-white py-[100px]">
 
       <div className="flex flex-col md:flex-row items-center text-sm font-medium text-gray-500 dark:text-gray-400 pb-[40px] md:pb-[100px] mx-1 sm:mx-20">
-        <h3 className="text-2xl lg:text-4xl text-center md:text-left items-center text-white w-auto whitespace-normal md:whitespace-nowrap">Productos Destacados</h3>
+        <h3 className="text-2xl lg:text-4xl text-center md:text-left items-center text-white w-auto whitespace-normal md:whitespace-nowrap">
+          {t('featured-products')} {' '} {lang}
+        </h3>
 
         <div className="gap-4 flex flex-wrap justify-center md:justify-start items-center flex-start w-full mt-10 md:mt-0 md:ml-[50px] text-left">
           {productsByCategory.map((product, index) => (
