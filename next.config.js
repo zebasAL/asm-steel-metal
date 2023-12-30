@@ -1,7 +1,14 @@
-module.exports = {
+const nextTranslate = require('next-translate-plugin')
+
+module.exports = nextTranslate({
   // eslint: {
   //   dirs: ['pages', 'utils'],
   // },
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'es',
+  },
+  productionBrowserSourceMaps: true,
   images: {
     remotePatterns: [
       {
@@ -34,15 +41,35 @@ module.exports = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'zys2nicxwzkmnh5p.public.blob.vercel-storage.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    });
+  webpack(config, { isServer, webpack }) {
+    config.module.rules.push(
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(pdf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'static/pdf', // Carpeta de salida en la construcción
+              publicPath: '/_next/static/pdf', // Ruta pública para acceder a los archivos
+            },
+          },
+        ],
+      }
+    );
 
     return config;
   },
-};
+});

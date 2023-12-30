@@ -10,7 +10,7 @@ export default function CategoryLabel({
   categories,
   nomargin = false
 }: LabelProps) {
-  console.log("categories", categories)
+
   return (
     <div className="flex gap-3">
       {categories?.length &&
