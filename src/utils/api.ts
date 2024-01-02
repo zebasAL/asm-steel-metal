@@ -5,7 +5,7 @@ type ApiParams = {
 };
 
 export async function serverFetch(url: string, options = {}) {
-  const currentDomain = process.env.NEXT_PUBLIC_BASE_URL;
+  const currentDomain = process.env.VERCEL_URL;
 
   const apiUrl = new URL(url, currentDomain);
   const response = await fetch(apiUrl.href, options);
@@ -18,6 +18,11 @@ export async function serverFetch(url: string, options = {}) {
 
 export const apiRoutes = {
   products: {
-    getAll: async <T>(params: ApiParams) => (await axios.get<T>('/api/products/', { params })).data
+    getAll: async <T>(params?: ApiParams) => await axios.get<T>('/api/products/', { params })
+  },
+  email: {
+    resend: {
+      send: async <T>(data?: T) => await axios.post<T>('/api/emails/resend/', data)
+    }
   },
 }

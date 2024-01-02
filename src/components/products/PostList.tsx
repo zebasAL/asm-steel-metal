@@ -57,7 +57,7 @@ export default function PostList({
                 ? "aspect-[5/4]"
                 : "aspect-square"
             )}
-            href={`/productos/${pathPrefix ? `${pathPrefix}/` : ""}${id}`}>
+            href={`/products/${pathPrefix ? `${pathPrefix}/` : ""}${id}`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -99,7 +99,7 @@ export default function PostList({
                 "mt-2    dark:text-white"
               )}>
               <Link
-                href={`/productos/${pathPrefix ? `${pathPrefix}/` : ""}${id}`}>
+                href={`/products/${pathPrefix ? `${pathPrefix}/` : ""}${id}`}>
                 <span
                   className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
       bg-no-repeat
@@ -117,7 +117,7 @@ export default function PostList({
               {product.excerpt && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
                   <Link
-                    href={`/productos/${
+                    href={`/products/${
                       pathPrefix ? `${pathPrefix}/` : ""
                     }${id}`}>
                     {product.excerpt}

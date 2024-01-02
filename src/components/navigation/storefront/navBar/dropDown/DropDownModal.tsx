@@ -1,9 +1,8 @@
-import { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import Image from "next/image";
-import Modal from "~/components/ui/Modal";
-import { DropDownItem } from "~/routes/hooks/useNavItems";
+import { useState } from "react";
 import { Product } from "~/mock/products/categoryProducts";
+import Modal from "~/components/ui/Modal";
 
 type PickedProduct = Pick<Product, 'name' | 'image'>;
 
@@ -20,6 +19,8 @@ type DropDownModalProps = {
 }
 
 export default function DropDownModal({ options, isOpen, onClose, title }: DropDownModalProps) {
+  const { t } = useTranslation("common")
+
   const [categoryProducts, setCategoryProducts] = useState<CategoryProductWithPickedProducts | null>(null)
 
   const handleSelectProducts = (products: CategoryProductWithPickedProducts) => {
@@ -50,17 +51,17 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
                 </div>
                 <Link
                   onClick={handleClose}
-                  href={`/categorias/${categoryProducts.categoryName}`}
+                  href={`/categories/${categoryProducts.categoryName}`}
                   className="cursor-pointer text-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-200 hover:rounded-lg p-2"
                 >
-                  <p>Ver todos</p>
+                  <p>{t("see-all")}</p>
                 </Link>
               </div>
 
               <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-center">
                 {categoryProducts.products?.map((product) => (
                   <div key={product.name} className="cursor-pointer p-2 rounded-md text-black hover:text-primary-lighter hover:bg-gray-100 transition-all hover:pl-8">
-                    <Link href={`/productos/${product.name}`} className="text-lg flex items-center justify-center">
+                    <Link href={`/products/${product.name}`} className="text-lg flex items-center justify-center">
                       {product.name}
                       <svg className="ml-2 my-auto w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
@@ -79,7 +80,7 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
                 {(options ?? []).map((item) => (
                   <div
                     key={item.categoryName}
-                    className="transition duration-300 ease-in bg-white min-h-[10rem] rounded-lg border-2 border-solid border-opacity-32 m-4 text-rgb-gray-600 text-sm hover:bg-gray-100 cursor-pointer"
+                    className="transition duration-300 ease-in bg-white min-h-[2rem] rounded-lg border-2 border-solid border-opacity-32 m-4 text-rgb-gray-600 text-sm hover:bg-gray-100 cursor-pointer"
                     onClick={() => handleSelectProducts(item)}
                   >
                     <div className="relative flex items-center justify-between p-3 md:p-4 border-b rounded-t dark:border-gray-600">

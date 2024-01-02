@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "types": ["react", "react-dom"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -19,8 +19,6 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"],
-      "~sectionBoard/*": ["./src/sections/admin/dashboard/*"],
-      "~pageBoard/*": ["./src/page/admin/dashboard/*"],
     },
     "plugins": [{ "name": "next" }],
   },

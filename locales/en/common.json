@@ -1,4 +1,11 @@
 {
-  "title": "Hello world",
-  "variable-example": "Using a variable {{count}}"
+  "categories": "categories",
+  "variable-example": "Using a variable {{count}}",
+  "name": "Name",
+  "phone": "Phone",
+  "email": "Email",
+  "message": "Message",
+  "send": "Send",
+  "search": "Search",
+  "see-all": "See all"
 }

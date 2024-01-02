@@ -26,7 +26,7 @@ export const categories: DropDownItem[] = [
   {
     title: 'Aceros Al Carbono',
     path: 'aceros-al-carbono',
-    image: 'https://panelyacanalados.com/wp-content/uploads/2022/12/perfiles-de-acero-al-carbon-apilados-dentro-de-una-bodega.jpg',
+    image: 'https://zys2nicxwzkmnh5p.public.blob.vercel-storage.com/D2.png',
     description: 'Descubre nuestra amplia gama de aceros al carbono para todas tus necesidades.',
     products: [
       { title: 'Producto 1', path: 'aceros-al-carbono/producto-1', img: imageUrl },

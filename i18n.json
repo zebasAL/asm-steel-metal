@@ -1,7 +1,10 @@
 {
+  "locales": ["en", "es"],
+  "defaultLocale": "es",
   "pages": {
     "*": ["common", "navbar", "footer"],
     "/": ["home"],
-    "/about": ["about"]
+    "/contact": ["contact"],
+    "/products/[name]": ["products"]
   }
 }
