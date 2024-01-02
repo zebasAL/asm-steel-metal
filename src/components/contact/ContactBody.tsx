@@ -1,57 +1,81 @@
-import { useState, useEffect, useRef } from "react";
-import { Dialog } from "@material-tailwind/react";
+import useTranslation from 'next-translate/useTranslation'
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@material-tailwind/react"
+import { toast } from 'react-hot-toast';
+import { contactFormSchema, ContactFormData } from "~/validationSchemas/forms/contactFormSchema"
 import { Address } from "~/mock/locations/companyAddress"
+import { apiRoutes } from "~/utils/api";
 
 export default function ContactBody({ location }: { location: Address | null }) {
-  // const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto()
+  const { t: commonT, lang } = useTranslation('common');
 
-  // const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null)
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    },
+  })
 
-  // useEffect(() => {
-  //   // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
-  //   if (lastViewedPhoto && !photoId) {
-  //     lastViewedPhotoRef.current.scrollIntoView({ block: 'center' })
-  //     setLastViewedPhoto(null)
-  //   }
-  // }, [lastViewedPhoto, setLastViewedPhoto])
+  const onSubmit: SubmitHandler<ContactFormData> = async (data: ContactFormData) => {
+    await apiRoutes.email.resend.send<ContactFormData>(data)
+      .then((res) => {
+        toast.success("")
+        reset()
+      })
+      .catch((error) => {
+        console.log("error", error)
+      })
+  }
 
   return (
     <section className="flex p-10 w-full">
-      {/* {
-        photoId && (
-          <Modal
-            images={images}
-            onClose={() => {
-              setLastViewedPhoto(photoId)
-            }}
-          />
-        )
-      } */}
 
-      <div className="w-1/2">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-1/2">
         <div className="flex flex-col items-center">
           <div className="p-10 pt-0 m-auto max-w-xl w-full">
             <div>
-              <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-              <input type="text" id="name" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{commonT("name")}</label>
+              <input {...register("name")} type="text" id="name" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
-              <input type="text" id="email" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{commonT("email")}</label>
+              <input {...register("email")} type="text" id="email" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
             </div>
             <div>
-              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefono</label>
-              <input type="text" id="phone" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{commonT("phone")}</label>
+              <input {...register("phone")} type="text" id="phone" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
             </div>
 
             <div>
-              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mensaje</label>
-              <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escriba un mensaje..." />
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{commonT("message")}</label>
+              <textarea
+                {...register("message")}
+                id="message"
+                rows={4}
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder={lang === "es" ? "Escriba un mensaje..." : "Write a message..."}
+              />
+              {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
             </div>
+            
+            <Button type="submit" className="w-full cursor-pointer mt-5" loading={isSubmitting}>
+              {commonT("send")}
+            </Button>
           </div>
-
         </div>
-      </div>
+      </form>
 
       {location?.iframeSrc && (
         <iframe

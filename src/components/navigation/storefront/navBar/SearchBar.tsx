@@ -1,8 +1,11 @@
+import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import Modal from "~/components/ui/Modal";
 import { useEventListener } from "~/hooks/useEventListener"
 
 export default function SearchBar() {
+  const { t } = useTranslation("common")
+
   const [isOpen, setIsopen] = useState<boolean>(false)
   useEventListener('keydown', (event) => {
     if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
@@ -28,7 +31,7 @@ export default function SearchBar() {
           </svg>
         </div>
         <p id="voice-search" className="">
-          Buscar...
+          {t("search")}...
         </p>
         <div className="text-white font-bold text-xs leading-5 ml-4 border border-solid border-gray-500 bg-black px-1 py-0.5 rounded-md">
           Ctrl+K
@@ -52,7 +55,7 @@ export default function SearchBar() {
             <div className="mt-4 text-center">
               <p className="text-gray-600 mb-3">Pruebe otra vez</p>
               <a href="/" className="text-blue-500 hover:underline">Home</a>
-              <a href="/contacto" className="text-blue-500 hover:underline ml-2">Contactanos</a>
+              <a href="/contact" className="text-blue-500 hover:underline ml-2">Contactanos</a>
             </div>
           </div>
 

@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -16,6 +17,8 @@ import { donwloadFile } from "~/utils/downloadPDF"
 
 
 export default function NavBar() {
+  const { t } = useTranslation("navbar")
+
   const isMobile = useResponsive(false, 'down', 'md')
 
   const isOffset = useOffSetTop(HEADER_HEIGHT)
@@ -56,7 +59,9 @@ export default function NavBar() {
 
         <div className="flex items-center justify-center gap-5">
           <DropDownList options={navItems} />
-          <Link href={'/contacto'}>Contacto</Link>
+          <Link href={'/contact'}>
+            {t("contact-us")}
+          </Link>
 
           <Button
             onClick={handleDownloadPresentationLetter}
@@ -77,7 +82,7 @@ export default function NavBar() {
                 d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
               />
             </svg>
-            Carta de Presentacion
+            {t("presentation-letter")}
           </Button>
         </div>
 

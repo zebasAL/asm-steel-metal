@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import { Button } from "@material-tailwind/react"
 
 type Location = {
@@ -9,6 +10,7 @@ type Location = {
 }
 
 export default function LocationBox ({ title, address, selected = false, phone, onClick = ()=>{} }: Location) {
+  const { t: contactT } = useTranslation('contact');
 
   return (
     <Button
@@ -20,7 +22,7 @@ export default function LocationBox ({ title, address, selected = false, phone, 
       <p style={{ userSelect: 'text' }} className="text-md text-gray-200 mb-4">{address}</p>
       <p style={{ userSelect: 'text' }} className="mb-4">{phone ? phone : null}</p>
       <a href="#" className="inline-flex items-center text-primary-500 font-medium">
-        {selected ? 'Seleccionado' : 'Seleccionar'}
+        {selected ? contactT("selected") : contactT("select")}
         
         {!selected && (
           <svg className="ml-2 w-4 h-4 group-hover:ml-6 transition-all ease-in-out" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

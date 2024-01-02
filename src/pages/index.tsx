@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Hero, FeaturedProducts, Categories, Content } from "~/components/home"
-import categoryProducts from "~/mock/products/categoryProducts";
+import { getFeaturedProducts } from "~/mock/utils"
+import { ProductsByCategories, ProductsByCategory } from "~/mock/products/featuredProducts"
+import categoryProducts, { CategoryProducts, CategoryProduct } from "~/mock/products/categoryProducts"
+import MainLayout from "~/components/layouts/MainLayout"
 
-export default function Home(
-  // props: InferGetServerSidePropsType<typeof getServerSideProps>
-) {
+export default function Home({ featuredProducts, navItems }: { featuredProducts: ProductsByCategory[], navItems: CategoryProduct[] }) {
   return (
     <>
       <Head>
@@ -13,30 +14,43 @@ export default function Home(
         <meta name="keywords" content={`asm, steel, metal, acero, asm-steel-metal, asm steel-metal`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        
-        <Hero />
+      <MainLayout categories={navItems}>
+        <main>
+          
+          <Hero />
 
-        <FeaturedProducts />
+          <FeaturedProducts products={featuredProducts} />
 
-        <div className="m-8">
-          <Categories />
-        </div>
+          <div className="m-8">
+            <Categories categories={navItems} />
+          </div>
 
-        <Content />
+          <Content />
 
-      </main>
+        </main>
+      </MainLayout>
     </>
   );
 }
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
-//  const hola = categoryProducts = ctx
+export async function getStaticProps<GetStaticProps>({ locale }: { locale: string }) {
+
+  const featuredProducts = getFeaturedProducts();
+  const featuredProductsByLocale = featuredProducts[locale as keyof ProductsByCategories]
+
+  const navItems = categoryProducts[locale as keyof CategoryProducts ?? 'es'].map((item => ({
+    ...item,
+    products: item.products.map((product) => ({
+      name: product.name,
+      image: product.image,
+    }))
+  })))
 
   return {
     props: { 
-      img: '',
+      featuredProducts: featuredProductsByLocale,
+      navItems: navItems,
      },
   };
 }

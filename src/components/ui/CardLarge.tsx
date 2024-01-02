@@ -18,8 +18,7 @@ export default function CardLarge({
   return (
     <div className="group relative cursor-pointer w-full flex flex-col md:flex-row items-center bg-white shadow-md hover:shadow-xl rounded-lg sm:flex-col hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img
-        className="md:w-1/3 md:height-full object-cover rounded-t-lg md:rounded-none md:rounded-s-lg"
-        // className="w-full h-full object-cover rounded-t-lg md:rounded-none md:rounded-s-lg"
+        className="md:w-1/3 md:height-full object-contain rounded-t-lg md:rounded-none md:rounded-s-lg"
         src={image}
         alt="image-card"
         style={{ height: '200px' }}

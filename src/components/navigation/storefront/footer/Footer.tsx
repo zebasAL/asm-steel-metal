@@ -1,7 +1,9 @@
+import useTranslation from 'next-translate/useTranslation'
 import Image from "next/image";
 import logoASM from "~/images/full_logo.png";
 
 export default function Footer() {
+  const { t } = useTranslation('footer');
 
   return (
     <footer className="bg-white dark:bg-gray-900">
@@ -43,7 +45,9 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
             <div className="mr-10">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contacto</h2>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                {t("contact").toUpperCase()}
+              </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4 underline">
                   <a
@@ -67,7 +71,9 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Ubicaciones</h2>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                {t("locations").toUpperCase()}
+              </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <a target="_blank" className="hover:underline" href="https://www.google.com/search?q=+asm+steel+metal+querearo&sca_esv=593226457&rlz=1C1NHXL_esMX1067MX1067&sxsrf=AM9HkKkQwpmxrSbkLdyqSkDflYMVnoFhxw%3A1703319904627&ei=YJmGZYn4Jb_bkPIP6sOwwA8&ved=0ahUKEwiJqOqOkaWDAxW_LUQIHeohDPgQ4dUDCBA&uact=5&oq=+asm+steel+metal+querearo&gs_lp=Egxnd3Mtd2l6LXNlcnAaAhgBIhkgYXNtIHN0ZWVsIG1ldGFsIHF1ZXJlYXJvMgoQIxiwAhgnGIsDSKMCUABYAHAAeACQAQCYAX-gAX-qAQMwLjG4AQPIAQD4AQHiAwQYACBB4gMFEgExIECIBgE&sclient=gws-wiz-serp" title="google">

@@ -10,11 +10,10 @@ export default function Hero() {
 
   return (
     <Carousel
-      title="hero"
       className="rounded-t-none w-full min-h-[40vw] max-h-[650px] overflow-hidden"
-      // autoplay
+      autoplay
       loop
-      // autoplayDelay={5000}
+      autoplayDelay={5000}
       transition={{ type: "tween", duration: .7 }}
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">

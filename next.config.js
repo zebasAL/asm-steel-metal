@@ -8,7 +8,6 @@ module.exports = nextTranslate({
     locales: ['en', 'es'],
     defaultLocale: 'es',
   },
-  productionBrowserSourceMaps: true,
   images: {
     remotePatterns: [
       {

@@ -1,22 +1,28 @@
 import Link from "next/link";
-import { useNavItems } from "~/routes/hooks/useNavItems";
+import useTranslation from 'next-translate/useTranslation'
 import { CardLarge } from "~/components/ui"
+import { CategoryProduct } from "~/mock/products/categoryProducts";
 
-export default function Categories() {
-  const { navItems } = useNavItems()
-
-  const categories = navItems.find((item) => item.subheader === "Categorias")
+export default function Categories({ categories }: { categories: CategoryProduct[] }) {
+  const { t } = useTranslation('home')
 
   return (
     <div>
-      <h3 className="text-4xl text-center mt-20">Categorias</h3>
+      <h3 className="text-4xl text-center mt-20">
+        {t('categories')}
+      </h3>
   
       <div className="w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400">        
   
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 justify-center">
-          {(categories?.items ?? []).map((item, index) => (
-            <Link key={index} href={`/categorias/${item.title}`}>
-              <CardLarge key={item.title} image={item.image ?? ""} title={item.title} description={item.description} />
+          {(categories ?? []).map((category, index) => (
+            <Link key={index} href={`/categories/${category.categoryName}`}>
+              <CardLarge
+                key={category.categoryName}
+                image={category.image ?? ""}
+                title={category.categoryName}
+                description={category.categoryDescription}
+              />
             </Link>
           ))}
         </div>
