@@ -1,13 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { Resend } from 'resend';
 import { serverValidateContactForm } from "~/validationSchemas/forms/contactFormSchema"
-
 export default async function resend(req: NextApiRequest, res: NextApiResponse) {
   try {
     const method = req.method;
 
     switch (method) {
-      case 'POST':
+      case 'POST': {
         const formData = serverValidateContactForm(req.body, res.status);
         const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -25,7 +24,8 @@ export default async function resend(req: NextApiRequest, res: NextApiResponse) 
 
         if (error) return res.status(400).json({ succes: false, message: error });
         return res.status(200).json({ success: true, data });
-      
+      }
+
       default:
         res.status(405).json({ message: 'Method Not Allowed' });
         break;

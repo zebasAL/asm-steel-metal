@@ -23,7 +23,7 @@ export type ProductResponse = {
   results: Product[],
 }
 
-export async function getAllProducts({ page = 1, per_page = 50 }: ProductParams = {}): Promise<Product[]> {
+export async function getAllProducts(): Promise<Product[]> {
 
   const firestore = firebaseAdmin.firestore();
   const querySnapshot = await firestore.collection("products")

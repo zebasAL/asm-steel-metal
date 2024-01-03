@@ -1,9 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import { Typography } from "@material-tailwind/react";
-import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
-import { categories, ProductItem } from "~/routes/hooks/useNavItems";
 import PostList from "~/components/products/PostList"
 import categoryProducts, { CategoryProducts, CategoryProduct, Product } from "~/mock/products/categoryProducts";
 import MainLayout from "~/components/layouts/MainLayout";

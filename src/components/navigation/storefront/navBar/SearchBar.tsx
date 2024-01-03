@@ -1,4 +1,5 @@
 import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
 import { useState } from "react";
 import Modal from "~/components/ui/Modal";
 import { useEventListener } from "~/hooks/useEventListener"
@@ -54,8 +55,8 @@ export default function SearchBar() {
 
             <div className="mt-4 text-center">
               <p className="text-gray-600 mb-3">Pruebe otra vez</p>
-              <a href="/" className="text-blue-500 hover:underline">Home</a>
-              <a href="/contact" className="text-blue-500 hover:underline ml-2">Contactanos</a>
+              <Link href="/" className="text-blue-500 hover:underline">Home</Link>
+              <Link href="/contact" className="text-blue-500 hover:underline ml-2">Contactanos</Link>
             </div>
           </div>
 

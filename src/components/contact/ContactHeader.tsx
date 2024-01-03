@@ -37,7 +37,7 @@ export default function ContactHeader({ locations, selectedLocation, handleClick
         </div>
 
         <div className="grid gap-2 md:grid-cols-2 md:gap-8 max-w-7xl mx-auto p-8 lg:grid-cols-2">
-          {locations.map((address, addressIndex) => (
+          {locations.map((address) => (
             <LocationBox
               key={address.title}
               onClick={() => handleClickLocation(address)}

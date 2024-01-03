@@ -73,6 +73,7 @@ export default function ProductPage({ product, locale }: { product: Product, loc
                       </ul>
                       <a
                         target="_blank"
+                        rel="noopener noreferrer"
                         lang={locale}
                         href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}/?text=Hola.%20Estoy%20interesado%20en%20el%20material%20${product.name}`}
                         title={`whatsapp-${product.name}`}
@@ -143,8 +144,8 @@ export default function ProductPage({ product, locale }: { product: Product, loc
                 {t("applications")}
               </h5>
               <ul role="list" className="space-y-5 my-7">
-                {(product.applications ?? []).map((application) => (
-                  <li className="flex items-center">
+                {(product.applications ?? []).map((application, index) => (
+                  <li className="flex items-center" key={index}>
                     <svg className="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                     </svg>
@@ -192,8 +193,8 @@ export default function ProductPage({ product, locale }: { product: Product, loc
                     <th scope="col" className="px-6 py-3">
                       {t("variant")}
                     </th>
-                    {Object.keys((product.chemical_composition ?? [])[0]).map((item) => (
-                      <th scope="col" className="px-6 py-3">
+                    {Object.keys((product.chemical_composition ?? [])[0] ?? []).map((item, index) => (
+                      <th scope="col" className="px-6 py-3" key={index}>
                         {item}
                       </th>
                     ))}
@@ -204,8 +205,8 @@ export default function ProductPage({ product, locale }: { product: Product, loc
                     <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {product.name}
                     </td>
-                    {Object.values((product.chemical_composition ?? [])[0]).map((item) => (
-                      <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {Object.values((product.chemical_composition ?? [])[0] ?? []).map((item, index) => (
+                      <td key={index} scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {item}
                       </td>
                     ))}
@@ -225,7 +226,7 @@ export default function ProductPage({ product, locale }: { product: Product, loc
 
 // -----------------------------------------------------------------------------------------
 
-export async function getStaticPaths<GetStaticPaths>({ locales }: { locales?: string[] }) {
+export async function getStaticPaths({ locales }: { locales?: string[] }) {
   const products: CategoryProducts = categoryProducts
   const defaultLocale = 'es'
 
@@ -244,7 +245,7 @@ export async function getStaticPaths<GetStaticPaths>({ locales }: { locales?: st
   };
 }
 
-export async function getStaticProps<GetStaticProps>({ params, locale }: { params: { name: string }, locale: string }) {
+export async function getStaticProps({ params, locale }: { params: { name: string }, locale: string }) {
   const defaultLocale = 'es'
 
   const product = categoryProducts[locale as keyof CategoryProducts ?? defaultLocale]

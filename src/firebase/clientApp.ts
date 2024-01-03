@@ -12,7 +12,7 @@ export const credentials = {
 };
 
 if (!firebase.apps.length) {
-  const app = firebase.initializeApp(credentials);
+  // const app = firebase.initializeApp(credentials);
   // const analytics = firebase.analytics(app);  // Inicializa Firebase Analytics
 }
 

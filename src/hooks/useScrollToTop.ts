@@ -5,9 +5,6 @@ import { usePathname } from '~/routes/hooks/use-pathname'
 // ----------------------------------------------------------------------
 
 export default function useScrollToTop() {
-  const pathname = usePathname();
-  const router = useRouter();
-
   useEffect(() => {
     const handleRouteChange = () => {
         window.scrollTo(0, 0);

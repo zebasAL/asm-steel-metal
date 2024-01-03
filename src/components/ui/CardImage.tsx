@@ -11,7 +11,6 @@ type Product = {
 export default function CardImage({
   title,
   image,
-  description,
 }: Product) {
 
   return (

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { Recipient, EmailParams } from "mailersend";
 import { MailerSend } from "mailersend";
-import { serverValidateContactForm, ContactFormData } from "~/validationSchemas/forms/contactFormSchema"
+import { serverValidateContactForm } from "~/validationSchemas/forms/contactFormSchema"
 
 export default async function mailersend(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -12,15 +12,16 @@ export default async function mailersend(req: NextApiRequest, res: NextApiRespon
     });
 
     switch (method) {
-      case 'GET':
+      case 'GET': {
         try {
           const { body } = await mailersend.others.getApiQuota()
           return res.status(200).json({ success: true, data: body });
         } catch (error) {
           return res.status(403).json({ success: false, error });
         }
+      }
 
-      case 'POST':
+      case 'POST': {
         const formData = serverValidateContactForm(req.body, res.status);
 
         const recipients = [new Recipient("zebastianalc@gmail.com", "Sebastian Almeida")];
@@ -39,6 +40,7 @@ export default async function mailersend(req: NextApiRequest, res: NextApiRespon
           res.status(500).json({ success: false, error: 'Internal Server Error', message: error });
         }
         break;
+      }
 
       default:
         res.status(405).json({ message: 'Method Not Allowed' });

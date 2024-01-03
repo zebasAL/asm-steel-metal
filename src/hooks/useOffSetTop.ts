@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useOffSetTop(top: number) {
   const [offsetTop, setOffsetTop] = useState(false);
