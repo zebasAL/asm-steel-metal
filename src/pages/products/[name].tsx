@@ -63,7 +63,7 @@ export default function ProductPage({ product, locale }: { product: Product, loc
                       <ul className="space-y-4 mb-4">
                         <li>
                           <input type="radio" id="job-3" name="job" value="job-3" className="hidden peer" />
-                          <label htmlFor="job-3" className="selected inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 border-blue-600 text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                          <label htmlFor="job-3" className="selected inline-flex items-center justify-between w-full p-5 bg-white borderrounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 border-blue-600 text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
                             <div className="block">
                               <div className="w-full text-lg font-semibold">{product.name}</div>
                             </div>
