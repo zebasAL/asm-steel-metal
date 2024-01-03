@@ -46,5 +46,5 @@
     "./node_modules/@material-tailwind/*",
     "./node_modules/@material-tailwind/react/index.d.ts",
     "./node_modules/@material-tailwind/react/**/*.d.ts"
-
+  ]
 }
