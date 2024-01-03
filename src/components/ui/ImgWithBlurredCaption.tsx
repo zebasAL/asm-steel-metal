@@ -5,7 +5,7 @@ type ImageCaption = {
   children?: React.ReactElement,
   image: string,
   alt?: string,
-  imageProps: HTMLImageElement,
+  imageProps?: HTMLImageElement,
   title: string,
   date?: string,
   description?: string,
