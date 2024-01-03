@@ -1,5 +1,4 @@
 import useTranslation from "next-translate/useTranslation";
-import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Button } from "@material-tailwind/react";
@@ -7,7 +6,7 @@ import DropDownList from "./dropDown";
 import LocalesDropDown from "./localesDropDown";
 import SearchBar from "./SearchBar";
 import logoASM from "~/images/mid_logo.png";
-import useResponsive from "~/hooks/useResponsive";
+// import useResponsive from "~/hooks/useResponsive";
 import useOffSetTop from "~/hooks/useOffSetTop";
 import useScrollDirection from "~/hooks/useScrollDirection";
 import { HEADER_HEIGHT, HEADER_PADDING } from "~/config"
@@ -19,7 +18,7 @@ import { donwloadFile } from "~/utils/downloadPDF"
 export default function NavBar() {
   const { t } = useTranslation("navbar")
 
-  const isMobile = useResponsive(false, 'down', 'md')
+  // const isMobile = useResponsive(false, 'down', 'md')
 
   const isOffset = useOffSetTop(HEADER_HEIGHT)
 

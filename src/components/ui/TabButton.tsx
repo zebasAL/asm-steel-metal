@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 type ButtonProps = {
   className?: string,
   onClick?: () => void,

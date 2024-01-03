@@ -9,7 +9,7 @@ type Props = {
 };
 
 export function useDoubleClick({ click, doubleClick, timeout = 250 }: Props) {
-  const clickTimeout = useRef<any>();
+  const clickTimeout = useRef<number | NodeJS.Timeout | any>(null);
 
   const clearClickTimeout = () => {
     if (clickTimeout) {
@@ -24,7 +24,7 @@ export function useDoubleClick({ click, doubleClick, timeout = 250 }: Props) {
       if (click && event.detail === 1) {
         clickTimeout.current = setTimeout(() => {
           click(event);
-        }, timeout);
+        }, timeout) as NodeJS.Timeout | number;
       }
       if (event.detail % 2 === 0) {
         doubleClick(event);

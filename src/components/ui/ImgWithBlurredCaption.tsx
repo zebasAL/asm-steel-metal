@@ -1,4 +1,5 @@
 import { Typography } from "@material-tailwind/react";
+import Image from "next/image";
 
 type ImageCaption = {
   children?: React.ReactElement,
@@ -11,7 +12,6 @@ type ImageCaption = {
 };
 
 export default function ImgWithBlurredCaption({
-  children,
   image,
   alt,
   title,
@@ -21,9 +21,11 @@ export default function ImgWithBlurredCaption({
 }: ImageCaption) {
   return (
     <figure className="relative h-96 w-full rounded-xl cursor-pointer overflow-hidden">
-      <img
+      <Image
         className="h-full w-full rounded-xl object-contain object-center transition-transform transform group-hover:scale-110"
         src={image}
+        width={400}
+        height={300}
         alt={alt ?? 'image-blurred'}
         {...imageProps}
       />
@@ -43,4 +45,4 @@ export default function ImgWithBlurredCaption({
       </figcaption>
     </figure>
   );
-};
+}

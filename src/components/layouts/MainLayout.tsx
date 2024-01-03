@@ -1,14 +1,5 @@
-import React from "react";
 import { NavBar, Footer } from "~/components/navigation/storefront";
 import { HEADER_HEIGHT } from "~/config"
-import { Product } from "~/mock/products/categoryProducts"
-
-type PickedProduct = Pick<Product, 'name' | 'image'>;
-
-type CategoryProductWithPickedProducts = {
-  categoryName: string;
-  products: PickedProduct[];
-};
 
 type Props = {
   children: JSX.Element;

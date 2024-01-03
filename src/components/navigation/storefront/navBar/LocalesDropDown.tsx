@@ -6,7 +6,6 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Typography,
 } from "@material-tailwind/react";
 import setLanguage from 'next-translate/setLanguage'
 

@@ -33,7 +33,7 @@ export default function FeaturedProducts({ products }: { products: ProductsByCat
         </h3>
 
         <div className="gap-4 flex flex-wrap justify-center md:justify-start items-center flex-start w-full mt-10 md:mt-0 md:ml-[50px] text-left">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div key={product.title}>
               <Button
                 className={`${product?.title === selectedProducts?.title ? 'text-black shadow-sm drop-shadow-sm bg-gray-300' : ''}`}

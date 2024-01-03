@@ -11,7 +11,7 @@ export const contactFormSchema = z.object({
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
 
-export function serverValidateContactForm<T>(data: ContactFormData, status: NextApiResponse["status"]): ContactFormData {
+export function serverValidateContactForm(data: ContactFormData, status: NextApiResponse["status"]): ContactFormData {
   try {
     const result: ContactFormData = contactFormSchema.parse(data);
     return result;

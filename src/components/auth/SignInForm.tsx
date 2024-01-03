@@ -24,7 +24,7 @@ function SignInForm() {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     defaultValues: {
@@ -40,7 +40,7 @@ function SignInForm() {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
           setError('password', { message: 'Wrong password.' });
         } else {

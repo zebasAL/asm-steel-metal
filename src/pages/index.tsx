@@ -34,7 +34,7 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
 }
 
 
-export async function getStaticProps<GetStaticProps>({ locale }: { locale: string }) {
+export async function getStaticProps({ locale }: { locale: string }) {
 
   const featuredProducts = getFeaturedProducts();
   const featuredProductsByLocale = featuredProducts[locale as keyof ProductsByCategories]

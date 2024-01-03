@@ -18,6 +18,11 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
+  settings: {
+    react: {
+      version: '18.2.0',
+    },
+  },
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/react-in-jsx-scope": "off",
@@ -27,6 +32,7 @@ module.exports = {
     "@next/next/no-img-element": 2,
     "react/no-unknown-property": 2,
     "no-case-declarations": "off",
+    "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-extra-semi": 2,
     "@typescript-eslint/no-empty-function": 0,
     "no-empty-pattern": 2,
