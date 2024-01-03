@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { parseISO, format } from "date-fns";
 // import { PhotoIcon } from "@heroicons/react/24/outline";
-import CategoryLabel from "~/components/products/categoryLabel";
+import CategoryLabel from "~/components/products/CategoryLabel";
 
 const cx = (...classNames: Array<string | boolean>) =>
   classNames.filter(Boolean).join(" ");
@@ -12,24 +12,37 @@ const cx = (...classNames: Array<string | boolean>) =>
 type List = {
   id: string,
   product: {
+    categories: string[],
     name: string,
     image: string,
     publishedAt?: string,
     _createdAt?: string,
+    mainImage?: {
+      blurDataURL?: string,
+      src: string,
+    },
+    author?: {
+      image: string,
+    }
   },
+  minimal?: boolean,
   aspect: string,
+  preloadImage: boolean,
+  fontSize?: string | "large",
+  fontWeight?: string | "normal",
+  pathPrefix?: string,
 }
 
 export default function PostList({
   id,
   product,
   aspect,
-  minimal,
+  minimal = false,
   pathPrefix,
   preloadImage,
   fontSize,
   fontWeight
-}) {
+}: List) {
   const imageProps = product?.mainImage
     ? (product.mainImage)
     : null;
@@ -61,11 +74,11 @@ export default function PostList({
             {imageProps ? (
               <Image
                 src={imageProps.src}
-                {...(product.mainImage.blurDataURL && {
+                {...(product?.mainImage?.blurDataURL && {
                   placeholder: "blur",
                   blurDataURL: product.mainImage.blurDataURL
                 })}
-                alt={product.mainImage.alt || "Thumbnail"}
+                alt={"Thumbnail"}
                 priority={preloadImage ? true : false}
                 className="object-cover transition-all"
                 fill
@@ -82,10 +95,7 @@ export default function PostList({
 
         <div className={cx(minimal && "flex items-center")}>
           <div>
-            <CategoryLabel
-              categories={product.categories}
-              nomargin={minimal}
-            />
+            <CategoryLabel categories={product.categories} />
             <h2
               className={cx(
                 fontSize === "large"
@@ -112,19 +122,6 @@ export default function PostList({
                 </span>
               </Link>
             </h2>
-
-            <div className="hidden">
-              {product.excerpt && (
-                <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                  <Link
-                    href={`/products/${
-                      pathPrefix ? `${pathPrefix}/` : ""
-                    }${id}`}>
-                    {product.excerpt}
-                  </Link>
-                </p>
-              )}
-            </div>
 
             <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
               {/* <Link href={`/author/${post?.author?.slug?.current}`}>

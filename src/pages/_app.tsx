@@ -25,7 +25,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <>
       <NextNProgress color="#29D" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
-      <Toaster position="bottom-center " />
+      <Toaster position="bottom-right" />
       <Component {...pageProps} />
     </>
   );

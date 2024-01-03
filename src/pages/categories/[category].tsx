@@ -62,14 +62,15 @@ export default function Category({ category, products }: { category: string, pro
                   mainImage: {
                     src: product.image,
                   },
-                  // publishedAt: new Date(),
-                  // _createdAt: new Date(),
+                  publishedAt: new Date().toISOString(),
+                  _createdAt: new Date().toISOString(),
                   author: {
                     image: "",
                   },
                   ...product,
                 }}
                 aspect="square"
+                preloadImage={true}
               />
             ))}
           </div>

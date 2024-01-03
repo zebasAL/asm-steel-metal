@@ -1,14 +1,12 @@
 import Link from "next/link";
-import Label from "~/components/ui/label";
+import Label from "~/components/ui/Label";
 
 type LabelProps = {
   categories: string[],
-  nomargin: boolean,
 }
 
 export default function CategoryLabel({
   categories,
-  nomargin = false
 }: LabelProps) {
 
   return (
@@ -18,8 +16,8 @@ export default function CategoryLabel({
           <Link
             href={`/categories/${category}`}
             key={index}>
-            <Label nomargin={nomargin} color={"blue"}>
-              {category}
+            <Label pill={false} color={"blue"}>
+              <p>{category}</p>
             </Label>
           </Link>
         ))}

@@ -3,15 +3,15 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { Button } from "@material-tailwind/react";
 import DropDownList from "./dropDown";
-import LocalesDropDown from "./localesDropDown";
+import LocalesDropDown from "./LocalesDropDown";
 import SearchBar from "./SearchBar";
 import logoASM from "~/images/mid_logo.png";
 // import useResponsive from "~/hooks/useResponsive";
 import useOffSetTop from "~/hooks/useOffSetTop";
 import useScrollDirection from "~/hooks/useScrollDirection";
-import { HEADER_HEIGHT, HEADER_PADDING } from "~/config"
 import Link from "next/link";
 import categoryProducts, { Product, CategoryProducts } from "~/mock/products/categoryProducts";
+import { HEADER_HEIGHT, HEADER_PADDING } from "~/config"
 import { donwloadFile } from "~/utils/downloadPDF"
 
 
