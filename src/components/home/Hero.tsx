@@ -10,6 +10,7 @@ export default function Hero() {
 
   return (
     <Carousel
+      {...CarouselProps}
       className="rounded-t-none w-full min-h-[40vw] max-h-[650px] overflow-hidden"
       autoplay
       loop
