@@ -33,7 +33,7 @@ export default async function mailersend(req: NextApiRequest, res: NextApiRespon
           .setText("Greetings from the team, you got this message through MailerSend.");
 
         try {
-          // @ts-expect-error
+          // @ts-expect-error this will be fixed later
           const response = await mailersend.email({ emailParams });
           res.status(200).json({ success: true, response });
         } catch (error) {
