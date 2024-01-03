@@ -14,7 +14,7 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
         <meta name="keywords" content={`asm, steel, metal, acero, asm-steel-metal, asm steel-metal`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainLayout categories={navItems}>
+      <MainLayout>
         <main>
           
           <Hero />

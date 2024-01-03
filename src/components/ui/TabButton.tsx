@@ -1,7 +1,7 @@
 type ButtonProps = {
   className?: string,
   onClick?: () => void,
-  children: React.ReactChildren | string,
+  children: JSX.Element | string,
 }
 
 export default function TabButton({

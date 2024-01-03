@@ -1,23 +1,28 @@
-/* eslint-disable */
 const cx = (...classNames: Array<string | boolean>) =>
   classNames.filter(Boolean).join(" ");
 
-export default function Label(props) {
-  const color = {
-    green: "text-emerald-700",
-    blue: "text-blue-600",
-    orange: "text-orange-700",
-    purple: "text-purple-600",
-    pink: "text-pink-600"
-  };
-  const bgcolor = {
-    green: "bg-emerald-50",
-    blue: "bg-blue-50",
-    orange: "bg-orange-50",
-    purple: "bg-purple-50",
-    pink: "bg-pink-50"
-  };
-  const margin = props.nomargin;
+const color = {
+  green: "text-emerald-700",
+  blue: "text-blue-600",
+  orange: "text-orange-700",
+  purple: "text-purple-600",
+  pink: "text-pink-600"
+};
+const bgcolor = {
+  green: "bg-emerald-50",
+  blue: "bg-blue-50",
+  orange: "bg-orange-50",
+  purple: "bg-purple-50",
+  pink: "bg-pink-50"
+};
+
+type Props = {
+  pill: boolean,
+  color: keyof typeof color,
+  children: JSX.Element,
+}
+
+export default function Label(props: Props) {
 
   if (props.pill) {
     return (
@@ -34,8 +39,8 @@ export default function Label(props) {
     <span
       className={cx(
         "inline-block text-xs font-medium tracking-wider uppercase ",
-        !margin && " mt-5",
-        color[props.color] || color[pink]
+        " mt-5",
+        color[props.color] || color["blue"]
       )}>
       {props.children}
     </span>

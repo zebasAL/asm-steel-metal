@@ -30,8 +30,6 @@ export default function Document() {
         <div
           id="fb-customer-chat"
           className="fb-customerchat"
-          logged_in_greeting="Hello, my name is Kevin :)"
-          logged_out_greeting="Hey, you are not logged in! You should log in."
         />
         <Script
           id="messenger-tag"
