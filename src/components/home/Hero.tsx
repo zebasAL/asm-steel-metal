@@ -10,7 +10,7 @@ export default function Hero() {
 
   return (
     <>
-    <Carousel
+    {/* <Carousel
       className="rounded-t-none w-full min-h-[40vw] max-h-[650px] overflow-hidden"
       autoplay
       loop
@@ -76,8 +76,8 @@ export default function Hero() {
           </svg>
         </IconButton>
       )}
-    >
-      <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+    > */}
+      {/* <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
         <iframe
           src="https://player.vimeo.com/video/899682027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
           frameBorder="0"
@@ -86,17 +86,17 @@ export default function Hero() {
           title="ASM_Drone"
         >
         </iframe>
-      </div>
+      </div> */}
 
 
-      {/* <VideoPlayer src={"https://117vod-adaptive.akamaized.net/exp=1704337414~acl=%2F4541ad0c-1298-4cdd-b4ab-d10cc6b409c4%2F%2A~hmac=2c24c65fb0fbd3ad4b0666a3b34ac640438eb7cbea60ff06c6088f82ddfe8b0b/4541ad0c-1298-4cdd-b4ab-d10cc6b409c4/sep/video/12029392,1f0f1af5,2d1f18bc,c6188043,e8c6307d/audio/41c40b42,4922aa6b,fddb0214/master.json?base64_init=1&query_string_ranges=1"} /> */}
+      <VideoPlayer src={"/videos/ASM_Drone.mp4"} />
 
       {/* <img
         src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
         alt="image 1"
         className="h-[40vw] w-full"
       /> */}
-    </Carousel>
+    {/* </Carousel> */}
       <script src="https://player.vimeo.com/api/player.js"></script>
 </>
   );

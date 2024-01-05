@@ -1,42 +1,43 @@
 import Head from "next/head";
 import { Typography } from "@material-tailwind/react";
-import { useRouter } from 'next/router';
 import PostList from "~/components/products/PostList"
-import categoryProducts, { CategoryProducts, CategoryProduct, Product } from "~/mock/products/categoryProducts";
+import categoryProducts, { CategoryProducts, CategoryProduct } from "~/mock/products/categoryProducts";
 import MainLayout from "~/components/layouts/MainLayout";
 
-export default function Category({ category, products }: { category: string, products: Product[] }) {
-  const router = useRouter();
+export default function Category({ category, products }: { category: Omit<CategoryProduct, 'products'>, products: CategoryProduct["products"] }) {
 
   return (
     <>
       <Head>
-        <title>Categoria: {category}</title>
-        {/* <meta name="description" content={product.description} /> */}
-        <meta name="keywords" content={category} />
+        <title>{category.categoryName}</title>
+        <meta name="description" content={category.categoryDescription} />
+        <meta name="keywords" content={category.categoryName} />
         <meta name="robots" content="index, follow" />
         {/* Facebook y General */}
-        <meta property="og:title" content={`Material: ${category}`} />
-        {/* <meta property="og:description" content={product.description} /> */}
-        {/* <meta property="og:image" content={product.image} /> */}
-        {/* <meta property="og:url" content={`${process.env.VERCEL_URL}/productos/${product.name}`} /> */}
+        <meta property="og:title" content={category.categoryName} />
+        <meta property="og:description" content={category.categoryDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${process.env.VERCEL_URL}/${products[0]?.image}`} />
+        <meta property="og:url" content={`${process.env.VERCEL_URL}/${products[0]?.name}`} />
         {/* Twitter */}
-        <meta name="twitter:title" content={`Material: ${category}`} />
-        {/* <meta name="twitter:description" content={product.description} /> */}
-        {/* <meta name="twitter:image" content={product.image} /> */}
-        {/* <meta name="twitter:site" content="@tu_usuario_de_twitter"> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content={`${process.env.VERCEL_URL}`} />
+        <meta property="twitter:url" content={`${process.env.VERCEL_URL}/${products[0]?.name}`} />
+        <meta name="twitter:title" content={`ASM - STEEL METAL: ${category.categoryName}`} />
+        <meta name="twitter:description" content={category.categoryDescription} />
+        <meta property="twitter:image" content={`${process.env.VERCEL_URL}/${products[0]?.name}`} />
       </Head>
       <MainLayout>
-      <main className="p-20">
-        <Typography variant="h1" color="blue" className="mb-10">{category}</Typography>
+        <main className="p-20">
+          <Typography variant="h1" color="blue" className="mb-10">{category.categoryName}</Typography>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:gap-10">
+          <div className="grid gap-10 md:grid-cols-2 lg:gap-10">
             {products.slice(0, 2).map(product => (
               <PostList
                 key={product.name}
                 id={product.name}
                 product={{
-                  categories: [category],
+                  categories: [category.categoryName],
                   mainImage: {
                     src: product.image,
                   },
@@ -58,7 +59,7 @@ export default function Category({ category, products }: { category: string, pro
                 key={product.name}
                 id={product.name}
                 product={{
-                  categories: [category],
+                  categories: [category.categoryName],
                   mainImage: {
                     src: product.image,
                   },
@@ -90,10 +91,10 @@ export async function getStaticPaths<GetStaticPaths>({ locales }: { locales?: st
 
   const paths = (locales ?? [defaultLocale]).flatMap((locale) =>
     (products[locale as keyof CategoryProducts] ?? []).flatMap((categoryProduct: CategoryProduct) =>
-      ({
-        params: { category: categoryProduct.categoryName },
-        locale,
-      })
+    ({
+      params: { category: categoryProduct.categoryName },
+      locale,
+    })
     )
   );
 
@@ -106,13 +107,15 @@ export async function getStaticPaths<GetStaticPaths>({ locales }: { locales?: st
 export async function getStaticProps({ params, locale }: { params: { category: string }, locale: string }) {
   const defaultLocale = 'es'
 
-  const productsByCategory: CategoryProduct["products"] | [] = categoryProducts[locale as keyof CategoryProducts ?? defaultLocale]
-    .find((item) => item.categoryName === params.category)?.products || []
+  const productsByCategory: CategoryProduct | { products: [] } = categoryProducts[locale as keyof CategoryProducts ?? defaultLocale]
+    .find((item) => item.categoryName === params.category) ?? { products: [] }
+
+  const { products, ...category } = productsByCategory
 
   return {
     props: {
-      category: params.category,
-      products: productsByCategory ?? [],
+      category,
+      products,
     },
   };
 }

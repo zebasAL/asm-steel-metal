@@ -16,20 +16,24 @@ export default function ProductPage({ product, locale }: { product: Product, loc
   return (
     <>
       <Head>
-        <title>Material: {product.name}</title>
+        <title>{product.name}</title>
         <meta name="description" content={product.description} />
         <meta name="keywords" content={product.name} />
         <meta name="robots" content="index, follow" />
         {/* Facebook y General */}
-        <meta property="og:title" content={`Material: ${product.name}`} />
+        <meta property="og:title" content={`${product.name}`} />
         <meta property="og:description" content={product.description} />
-        <meta property="og:image" content={product.image} />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content={`${process.env.VERCEL_URL}/${product.image}`} />
+        <meta property="og:image" content={`${process.env.VERCEL_URL}/${product.image}`} />
         <meta property="og:url" content={`${process.env.VERCEL_URL}/products/${product.name}`} />
         {/* Twitter */}
-        <meta name="twitter:title" content={`Material: ${product.name}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={product.name} />
         <meta name="twitter:description" content={product.description} />
         <meta name="twitter:image" content={product.image} />
-        {/* <meta name="twitter:site" content="@tu_usuario_de_twitter"> */}
+        <meta property="twitter:domain" content={`${process.env.VERCEL_URL}`} />
+        <meta property="twitter:url" content={`${process.env.VERCEL_URL}/products/${product.name}`} />
       </Head>
       <MainLayout>
       <main className="mx-0.5 sm:mx-2 md:mx-10 my-[100px]">
