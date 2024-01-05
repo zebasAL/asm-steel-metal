@@ -1,19 +1,15 @@
 import useTranslation from "next-translate/useTranslation";
-import Link from "next/link";
 import { useState } from "react";
-import Modal from "~/components/ui/Modal";
 import { useEventListener } from "~/hooks/useEventListener"
+import SearchTextField, { SearchResult } from "./SearchTextField"
+import SearchResults from "./SearchResults";
+import Modal from "~/components/ui/Modal";
 
 export default function SearchBar() {
-  const { t } = useTranslation("common")
+  const { t, lang } = useTranslation("common")
 
+  const [results, setResults] = useState<SearchResult | null>(null)
   const [isOpen, setIsopen] = useState<boolean>(false)
-  useEventListener('keydown', (event) => {
-    if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
-      event.preventDefault();
-      setIsopen(!isOpen)
-    }
-  })
 
   const handleOpen = () => {
     setIsopen(true)
@@ -22,6 +18,13 @@ export default function SearchBar() {
   const handleClose = () => {
     setIsopen(false)
   }
+
+  useEventListener('keydown', (event) => {
+    if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
+      event.preventDefault();
+      setIsopen(!isOpen)
+    }
+  })
 
   return (
     <div className="flex">
@@ -41,24 +44,10 @@ export default function SearchBar() {
 
       <Modal isOpen={isOpen} onClose={handleClose} className="absolute top-[0]">
         <div className="relative w-full min-h-[500px] bg-red p-10">
-          <input
-            type="text"
-            id="voice-search"
-            className="bg-gray-50 h-[50px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Buscar Productos, Categorias, Servicios..."
-            required
-          />
 
-          <div className="flex flex-col items-center justify-center h-auto mt-10">
-            <h1 className="text-4xl font-bold mb-4">Busqueda - no encontrada</h1>
-            <p className="text-gray-600">Lo lamentamos, no se pudo encontrar la busqueda.</p>
+          <SearchTextField onChangeResults={(values) => setResults(values)} />
 
-            <div className="mt-4 text-center">
-              <p className="text-gray-600 mb-3">Pruebe otra vez</p>
-              <Link href="/" className="text-blue-500 hover:underline">Home</Link>
-              <Link href="/contact" className="text-blue-500 hover:underline ml-2">Contactanos</Link>
-            </div>
-          </div>
+          <SearchResults results={results} />
 
         </div>
       </Modal>

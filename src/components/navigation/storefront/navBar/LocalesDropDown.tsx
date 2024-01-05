@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation'
+import { useRouter } from 'next/router';
 import { useState } from "react";
 import {
   Menu,
@@ -16,6 +17,12 @@ import mx_flag from "public/mexico.png";
 export default function LocalesDropDown() {
   const { t, lang } = useTranslation('navbar')
   const [openMenu, setOpenMenu] = useState(false);
+  const route = useRouter()
+
+  const handleChangeLocale = async (locale: string) => {
+    await setLanguage(locale)
+    route.push("/")
+  }
 
   return (
     <Menu
@@ -31,8 +38,8 @@ export default function LocalesDropDown() {
         >
           <Image
             alt="flag"
-            width={45}
-            height={45}
+            width={25}
+            height={25}
             className="mr-5"
             src={lang === "en" ? usa_flag : mx_flag}
           />
@@ -44,15 +51,15 @@ export default function LocalesDropDown() {
         {(i18nConfig.locales).filter((locale) => locale !== lang).map((locale) => (
           <MenuItem
             key={locale}
-            onClick={async () => await setLanguage(locale)}
+            onClick={async () => handleChangeLocale(locale)}
             className="block text-sm p-0 px-2 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
             role="menuitem"
           >
             <div className="inline-flex items-center">
               <Image
                 alt="flag"
-                width={45}
-                height={45}
+                width={25}
+                height={25}
                 className="mr-5"
                 src={locale === "en" ? usa_flag : mx_flag}
               />

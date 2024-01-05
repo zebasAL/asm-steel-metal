@@ -1,5 +1,5 @@
 import { Carousel } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { breakpoints } from "~/hooks/useResponsive";
 import { ImgWithBlurredCaption } from "~/components/ui"
 import { ProductsByCategory } from "~/mock/products/featuredProducts"
@@ -38,6 +38,8 @@ export default function ProductsCarrousel({ products, onClick }: { products: Pro
 
   const [elements, setElements] = useState<JSX.Element[]>([])
 
+  const carouselRef = useRef<HTMLSpanElement>(null)
+
   useEffect(() => {
     const productsList = (productsGroup ?? []).map((group, index) => (
       <div key={index} className="mx-[50px] grid gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 py-10">
@@ -54,27 +56,34 @@ export default function ProductsCarrousel({ products, onClick }: { products: Pro
       </div>
     ))
 
+    if (carouselRef.current) {
+      carouselRef.current.click()
+    }
+
     setElements(productsList)
   }, [products])
 
   return (
-    <>
+    <div className="home-products-carousel">
       {elements?.length > 0
       ? (
         <Carousel
           loop
           autoplay
           autoplayDelay={5000}
+          color="black"
           key={0}
           navigation={({ setActiveIndex, activeIndex, length }) => (
             <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
               {new Array(length).fill("").map((_, i) => (
                 <span
+                  itemID="tabs"
+                  ref={i === 0 ? carouselRef : null}
+                  tabIndex={i}
                   key={i}
                   className={`
-                    block h-1 cursor-pointer rounded-2xl transition-all content-['']
-                    ${activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"}
-                    ${i === 1 ? "bg-black" : ""}
+                    block h-1 cursor-pointer rounded-2xl transition-all content-[''] bg-black
+                    ${activeIndex === i ? "w-8" : "w-4"}
                   `}
                   onClick={() => setActiveIndex(i)}
                 />
@@ -87,6 +96,6 @@ export default function ProductsCarrousel({ products, onClick }: { products: Pro
       )
       : null
       }
-    </>
+    </div>
   )
 }

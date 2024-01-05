@@ -3,5 +3,14 @@
   "locale_es": "Spanish",
   "contact-us": "Contact us",
   "presentation-letter": "Presentation letter",
-  "categories": "Categories"
+  "categories": "Categories",
+  "search-modal-title": "Product Catalog",
+  "search-modal-title-not-found": "Search - not found",
+  "search-modal-description": "Find what you're looking for here.",
+  "search-modal-description-not-found": "We're sorry, the search couldn't be found.",
+  "search-modal-description-not-found-second": "Try again",
+  "search-modal-placeholder-field": "Search for products, categories...",
+  "search-modal-products-title": "Products",
+  "search-modal-categories-title": "Categories",
+  "search-modal-no-results-message": "No results"
 }

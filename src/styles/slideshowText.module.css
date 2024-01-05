@@ -1,0 +1,37 @@
+/* .wrapper{
+    box-sizing: content-box;
+    background-color: #ffffff;
+    padding: 50px 30px;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 0 20px 25px rgba(0,0,0,0.2);
+} */
+.words {
+  overflow: hidden;
+}
+
+.words span {
+  display: block;
+  height: 100%;
+  animation: spin_words 5.5s infinite;
+  animation-delay: 2s;
+}
+
+@keyframes spin_words {
+  45% {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  89% {
+    opacity: .7;
+    transform: translateY(-200%);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
