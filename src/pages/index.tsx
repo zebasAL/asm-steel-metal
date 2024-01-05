@@ -22,7 +22,6 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
       </Head>
       <MainLayout>
         <main>
-          
           <Hero />
 
           <FeaturedProducts products={featuredProducts} />
@@ -32,7 +31,6 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
           </div>
 
           <Content />
-
         </main>
       </MainLayout>
     </>
