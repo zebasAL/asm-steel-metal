@@ -37,7 +37,7 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} className="mt-[50px] mx-[100px] min-w-[90vw] md:min-w-fit transition-all ease-in-out w-auto">
+    <Modal isOpen={isOpen} onClose={handleClose} onMouseLeave={handleClose} className="mt-[20px] pt-[50px] mx-[100px] min-w-[90vw] md:min-w-fit transition-all ease-in-out w-auto">
       <div className="transition-all ease-in-out w-auto">
         {categoryProducts
           ? (

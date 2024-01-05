@@ -3,5 +3,14 @@
   "locale_es": "Español",
   "contact-us": "Contactanos",
   "presentation-letter": "Carta de presentacion",
-  "categories": "Categorias"
+  "categories": "Categorias",
+  "search-modal-title": "Catálogo de productos",
+  "search-modal-title-not-found": "Busqueda - no encontrada",
+  "search-modal-description": "Encuentra lo que buscas aqui.",
+  "search-modal-description-not-found": "Lo lamentamos, no se pudo encontrar la busqueda.",
+  "search-modal-description-not-found-second": "Pruebe otra vez",
+  "search-modal-placeholder-field": "Buscar Productos, Categorias...",
+  "search-modal-products-title": "Productos",
+  "search-modal-categories-title": "Categorias",
+  "search-modal-no-results-message": "Sin resultados"
 }

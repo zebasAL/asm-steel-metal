@@ -1,10 +1,3 @@
-export type CategoryProduct = {
-  categoryName: string;
-  categoryDescription: string;
-  image: string;
-  products: Product[];
-};
-
 export type Product = {
   name: string;
   image: string;
@@ -15,6 +8,13 @@ export type Product = {
   chemical_composition: null | {
     [clave: string]: string;
   }[]
+};
+
+export type CategoryProduct = {
+  categoryName: string;
+  categoryDescription: string;
+  image: string;
+  products: Product[];
 };
 
 export type CategoryProducts = {

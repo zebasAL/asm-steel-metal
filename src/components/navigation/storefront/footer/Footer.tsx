@@ -62,8 +62,9 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
+                    title="mail"
                     className="underline"
-                    href="https://mail.google.com/mail/u/0/?source=mailto&amp;to=ventas@sagaon.tech&amp;fs=1&amp;tf=cm&amp;su=Informacion%20adicional%20sobre%20su%20producto&amp;body=Hola,%20busco%20un%20poco%20mas%20de%20informacion"
+                    href={`https://mail.google.com/mail/u/0/?source=mailto&amp;to=${process.env.NEXT_PUBLIC_ASM_EMAIL}&amp;fs=1&amp;tf=cm&amp;su=Informacion%20adicional&amp;body=Hola,%20busco%20un%20poco%20mas%20de%20informacion`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

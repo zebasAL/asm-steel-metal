@@ -1,7 +1,9 @@
-/* eslint-disable */
-import { Carousel, IconButton } from "@material-tailwind/react";
+import { useState } from 'react';
+import { m } from 'framer-motion'
 import useResponsive from "~/hooks/useResponsive";
 import VideoPlayer from "../ui/VideoPlayer";
+import { MotionViewport, varFade } from '../../components/animate'
+import slideShowStyles from "~/styles/slideshowText.module.css"
 
 export default function Hero() {
   const isSmall = useResponsive(false, 'down', 'sm')
@@ -10,7 +12,7 @@ export default function Hero() {
 
   return (
     <>
-    {/* <Carousel
+      {/* <Carousel
       className="rounded-t-none w-full min-h-[40vw] max-h-[650px] overflow-hidden"
       autoplay
       loop
@@ -77,27 +79,59 @@ export default function Hero() {
         </IconButton>
       )}
     > */}
-      {/* <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-        <iframe
-          src="https://player.vimeo.com/video/899682027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          title="ASM_Drone"
-        >
-        </iframe>
-      </div> */}
+      {/* <VideoPlayer src={"/videos/ASM_Drone.mp4"} /> */}
 
+      <MotionViewport>
+        <m.div initial variants={varFade().inDown} whileInView={{ opacity: 0 }}>
+          <h1 className="absolute animate-fade-in-left animate-once text-white text-6xl top-[40%] left-10 font-bold" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+            LO MEJOR EN
+          <SlideShowText />
 
-      <VideoPlayer src={"/videos/ASM_Drone.mp4"} />
+          </h1>
+        </m.div>
+      </MotionViewport>
+
+      <VideoPlayer src={"https://i.imgur.com/3nc1jty.mp4"} />
 
       {/* <img
         src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
         alt="image 1"
         className="h-[40vw] w-full"
       /> */}
-    {/* </Carousel> */}
-      <script src="https://player.vimeo.com/api/player.js"></script>
-</>
+      {/* </Carousel> */}
+    </>
+  );
+}
+
+
+// ----------------------------------------------------------
+
+const SlideShowText = () => {
+  const [words, setWords] = useState(["PRECIOS", "CALIDAD", "SERVICIO"]);
+
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setWords(prevWords => {
+  //       const newWords = [...prevWords];
+  //       newWords.push(newWords.shift());
+  //       return newWords;
+  //     });
+  //   }, 1000); // Cambia la duración del intervalo según sea necesario
+
+  //   return () => clearInterval(intervalId);
+  // }, []);
+
+  return (
+    <div className={`${slideShowStyles.words} text-[#45bde9] h-[60px]`}>
+      <span>
+        {words[0]}
+      </span>
+      <span className="hidden">
+        {words[1]}
+      </span>
+      <span className="hidden">
+        {words[2]}
+      </span>
+    </div>
   );
 }
