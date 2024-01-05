@@ -57,7 +57,7 @@ export default function SearchResults({ results }: { results: SearchResult | nul
           <div className="flex flex-col gap-[50px]">
 
             {results.matchedProducts.map((product) => (
-              <Link href={`/products/${product.name}`} hrefLang={lang} className="flex hover:bg-blue-gray-50 rounded-lg p-2 cursor-pointer">
+              <Link key={product.name} href={`/products/${product.name}`} hrefLang={lang} className="flex hover:bg-blue-gray-50 rounded-lg p-2 cursor-pointer">
                 <Image width={100} height={100} src={product.image} alt={product.name} className="object-contain" />
                 <div>
                   <p className="text-lg font-bold">{product.name}</p>
@@ -79,7 +79,7 @@ export default function SearchResults({ results }: { results: SearchResult | nul
           <div className="flex flex-col gap-[50px]">
 
             {results.matchedCategories.map((category) => (
-              <Link href={`/products/${category.categoryName}`} hrefLang={lang} className="flex hover:bg-blue-gray-50 rounded-lg p-2 cursor-pointer">
+              <Link key={category.categoryName} href={`/products/${category.categoryName}`} hrefLang={lang} className="flex hover:bg-blue-gray-50 rounded-lg p-2 cursor-pointer">
                 <Image width={100} height={100} src={category.image} alt={category.categoryName} className="object-contain" />
                 <div>
                   <p className="text-lg font-bold">{category.categoryName}</p>

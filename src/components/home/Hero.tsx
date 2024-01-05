@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { m } from 'framer-motion'
 import useResponsive from "~/hooks/useResponsive";
 import VideoPlayer from "../ui/VideoPlayer";
-import { MotionViewport, varFade } from '../../components/animate'
 import slideShowStyles from "~/styles/slideshowText.module.css"
+import Image from 'next/image';
 
 export default function Hero() {
   const isSmall = useResponsive(false, 'down', 'sm')
@@ -81,15 +80,21 @@ export default function Hero() {
     > */}
       {/* <VideoPlayer src={"/videos/ASM_Drone.mp4"} /> */}
 
-      <MotionViewport>
-        <m.div initial variants={varFade().inDown} whileInView={{ opacity: 0 }}>
-          <h1 className="absolute animate-fade-in-left animate-once text-white text-6xl top-[40%] left-10 font-bold" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+        <div>
+          <h1
+            className="absolute animate-fade-in-left animate-once text-white text-6xl top-[40%] font-bold"
+            style={{ left: "40px", textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', fontSize: "60px" }}
+          >
             LO MEJOR EN
           <SlideShowText />
 
           </h1>
-        </m.div>
-      </MotionViewport>
+        </div>
+
+        <div className="absolute flex" style={{ top: "80px", right: "20px" }}>
+          <Image width={300} height={300} src="/images/certificacion.png" alt="Bureau Veritas Certification" style={{ width: "300px", height: "200px" }} />
+          <Image width={100} height={100} src="/images/hardox_logo.png" alt="Hardox logo" className="m-auto" style={{ width: "100px", height: "100px" }} />
+        </div>
 
       <VideoPlayer src={"https://i.imgur.com/3nc1jty.mp4"} />
 
@@ -122,7 +127,7 @@ const SlideShowText = () => {
   // }, []);
 
   return (
-    <div className={`${slideShowStyles.words} text-[#45bde9] h-[60px]`}>
+    <div className={slideShowStyles.words} style={{ color: "#45bde9", fontSize: "60px", height: "80px" }}>
       <span>
         {words[0]}
       </span>

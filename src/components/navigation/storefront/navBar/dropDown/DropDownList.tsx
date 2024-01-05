@@ -3,18 +3,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@material-tailwind/react";
 import DropDownModal from "./DropDownModal"
-import { Product } from "~/mock/products/categoryProducts";
+import { CategoryProduct } from "~/mock/products/categoryProducts";
 import { donwloadFile } from "~/utils/downloadPDF"
 
-type PickedProduct = Pick<Product, 'name' | 'image'>;
-
-type CategoryProductWithPickedProducts = {
-  categoryName: string;
-  products: PickedProduct[];
-};
-
 type Props = {
-  options: CategoryProductWithPickedProducts[] | [],
+  options: CategoryProduct[],
 };
 
 export default function DropDownList({ options }: Props) {

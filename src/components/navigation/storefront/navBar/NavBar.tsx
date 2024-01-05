@@ -8,7 +8,7 @@ import logoASM from "~/images/mid_logo.png";
 import useOffSetTop from "~/hooks/useOffSetTop";
 import useScrollDirection from "~/hooks/useScrollDirection";
 import Link from "next/link";
-import categoryProducts, { Product, CategoryProducts } from "~/mock/products/categoryProducts";
+import categoryProducts, { Product, CategoryProducts, CategoryProduct } from "~/mock/products/categoryProducts";
 import { HEADER_HEIGHT, HEADER_PADDING } from "~/config"
 
 
@@ -23,13 +23,7 @@ export default function NavBar() {
 
   const locale = router.locale || (router.defaultLocale)
 
-  const navItems = categoryProducts[locale as keyof CategoryProducts ?? 'es'].map((item => ({
-    ...item,
-    products: item.products.map((product) => ({
-      name: product.name,
-      image: product.image,
-    }))
-  })))
+  const navItems: CategoryProduct[] = categoryProducts[locale as keyof CategoryProducts ?? 'es']
 
   return (
     <nav className={`w-full fixed bg-white transition-all ease-in-out top-0 z-50 shadow-2xl p-[13px] h-[${HEADER_HEIGHT - HEADER_PADDING}px]`}

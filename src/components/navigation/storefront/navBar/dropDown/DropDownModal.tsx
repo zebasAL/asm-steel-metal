@@ -1,15 +1,11 @@
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import { useState } from "react";
-import { Product } from "~/mock/products/categoryProducts";
+import { CategoryProduct } from "~/mock/products/categoryProducts";
 import Modal from "~/components/ui/Modal";
+import Image from "next/image";
 
-type PickedProduct = Pick<Product, 'name' | 'image'>;
-
-type CategoryProductWithPickedProducts = {
-  categoryName: string;
-  products: PickedProduct[];
-};
+type CategoryProductWithPickedProducts = CategoryProduct
 
 type DropDownModalProps = {
   options: CategoryProductWithPickedProducts[] | [],
@@ -85,10 +81,18 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
                   >
                     <div className="relative flex items-center justify-between p-3 md:p-4 border-b rounded-t dark:border-gray-600">
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white z-10">{item.categoryName}</h3>
-                      {/* {item.image && (<Image src={item.image} width={100} height={5} alt="image" layout="responsive" style={{ opacity: .5 }} className="w-full absolute left-0 top-0 rounded-t-lg object-cover max-h-[60px]" />)} */}
+                      <Image
+                        src={item.image}
+                        width={100}
+                        height={5}
+                        alt="image"
+                        layout="responsive"
+                        style={{ opacity: .5 }}
+                        className="w-full absolute left-0 top-0 rounded-t-lg object-cover max-h-[60px]"
+                      />
                     </div>
                     <div className="p-3 md:p-4 space-y-4 z-10">
-                      <p className="text-sm leading-relaxed text-gray-400 dark:text-gray-400 z-10">{item.categoryName}</p>
+                      <p className="text-sm leading-relaxed text-gray-400 dark:text-gray-400 z-10">{item.categoryDescription}</p>
                     </div>
                   </div>
                 ))}

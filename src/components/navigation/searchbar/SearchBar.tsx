@@ -43,7 +43,7 @@ export default function SearchBar() {
       </button>
 
       <Modal isOpen={isOpen} onClose={handleClose} className="absolute top-[0]">
-        <div className="relative w-full min-h-[500px] bg-red p-10">
+        <div className="relative w-full min-h-[400px] bg-red p-5">
 
           <SearchTextField onChangeResults={(values) => setResults(values)} />
 

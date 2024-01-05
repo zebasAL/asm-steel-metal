@@ -14,8 +14,8 @@ body {
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow-x: hidden;
   overflow-y: auto; /* Agrega esta línea para que el scroll esté en el body */
+  overflow-x: hidden !important;
   box-sizing: inherit; /* Para mantener el mismo modelo de caja que en el html */
 }
 a {
