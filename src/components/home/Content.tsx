@@ -9,7 +9,7 @@ export default function Content() {
 
   return (
     <>
-      <div className='relative bg-gradient-to-r from-gray-200 #fffff'>
+      <div className='relative bg-gradient-to-r from-gray-200 #fffff max-w-[98.9vw]'>
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] w-full">
 
           <div
@@ -19,7 +19,7 @@ export default function Content() {
               height: 0,
               borderRight: '0 solid #fff',
               borderTop: '50px solid #fff',
-              borderLeft: '100vw solid transparent',
+              borderLeft: '99vw solid transparent',
               borderBottom: '50px solid transparent',
             }}
           />
@@ -39,7 +39,7 @@ export default function Content() {
             style={{
               width: 0,
               height: 0,
-              borderRight: '100vw solid transparent',
+              borderRight: '99vw solid transparent',
               borderTop: '50px solid transparent',
               borderLeft: '0 solid #fff',
               borderBottom: '50px solid #fff',

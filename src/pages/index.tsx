@@ -9,10 +9,16 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
   return (
     <>
       <Head>
-        <title>ASM STEEL-METAL</title>
-        <meta name="description" content={`ASM STEEL-METAL es una empresa dedicada a entregar al sector productivo aceros y metales especiales`} />
-        <meta name="keywords" content={`asm, steel, metal, acero, asm-steel-metal, asm steel-metal`} />
+        <title>ASM - STEEL METAL</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="index, follow" />
+        {/* Facebook y General */}
+        <meta property="og:title" content="ASM - STEEL METAL" />
+        <meta property="og:image" content="/asm-front.jpg" />
+        <meta property="og:url" content={`${process.env.VERCEL_URL}`} />
+        {/* Twitter */}
+        <meta property="twitter:image" content="/asm-front.jpg" />
+        <meta property="twitter:url" content={`${process.env.VERCEL_URL}`} />
       </Head>
       <MainLayout>
         <main>
