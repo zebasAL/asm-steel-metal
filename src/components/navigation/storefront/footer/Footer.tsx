@@ -43,7 +43,8 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-3">
+
             <div className="mr-10">
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 {t("contact").toUpperCase()}
@@ -73,6 +74,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 {t("locations").toUpperCase()}
@@ -91,6 +93,12 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
+            <div className="flex flex-col gap-5 m-auto items-center">
+              <Image width={150} height={150} src="/images/certificacion.png" alt="Bureau Veritas Certification" className="objet-cover" style={{ scale: "1.6" }} />
+              <Image width={120} height={40} src="/images/hardox_logo.png" alt="Hardox logo" className="scale-150 objet-cover" style={{ height: "40px", objectFit: "cover" }} />
+            </div>
+
             {/* <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
