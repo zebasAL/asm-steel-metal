@@ -29,8 +29,8 @@ export default function Content() {
           <div className="relative z-[-1]">
             <Image
               layout='fill'
-              src="https://www.magnacero.com/wp-content/uploads/elementor/thumbs/Industria-acerera-pqnf112rpu160hrfg4j1gg9bqegdrj9u8oeyworwks.jpg"
-              className="w-full object-cover"
+              src="/asm-front.jpg"
+              className="w-full object-cover scale-[1.15]"
             />
           </div>
 
