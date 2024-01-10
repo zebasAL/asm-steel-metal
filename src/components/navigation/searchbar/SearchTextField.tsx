@@ -15,8 +15,6 @@ export default function SearchTextField ({ onChangeResults }: { onChangeResults:
   const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    searchRef.current?.focus()
-
     if (debouncedValue === "") {
       onChangeResults(null)
       return 
@@ -28,10 +26,10 @@ export default function SearchTextField ({ onChangeResults }: { onChangeResults:
   return (
     <input
       type="text"
-      id="search"
+      id="search-products"
       ref={searchRef}
       onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
-      className="bg-gray-50 h-[50px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      className="bg-gray-50 h-[50px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2.5 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       placeholder={t("search-modal-placeholder-field")}
       required
     />

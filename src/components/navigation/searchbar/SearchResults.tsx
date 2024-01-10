@@ -27,11 +27,11 @@ export default function SearchResults({ results }: { results: SearchResult | nul
   )
 
   if (noResults) return (
-    <div className="flex flex-col items-center justify-center h-auto mt-10">
-      <h3 className="text-4xl font-bold mb-4">{t("search-modal-title-not-found")}</h3>
-      <p className="text-gray-600">{t("search-modal-description-not-found")}</p>
+    <div className="text-center flex flex-col items-center justify-center h-auto mt-10">
+      <h3 className="text-lg lg:text-4xl font-bold mb-4">{t("search-modal-title-not-found")}</h3>
+      <p className=" text-xs lg:text-lg text-gray-600">{t("search-modal-description-not-found")}</p>
 
-      <div className="mt-4 text-center">
+      <div className="mt-4 text-center hidden lg:block">
         <p className="text-gray-600 mb-3">{t("search-modal-description-not-found-second")}</p>
         <Link href={lang === "es" ? "/" : "en/"} className="text-blue-500 hover:underline">Home</Link>
         <Link href={`${lang === "es" ? "/" : "/en/"}contact`} className="text-blue-500 hover:underline ml-2">{contactTitle}</Link>
@@ -41,7 +41,7 @@ export default function SearchResults({ results }: { results: SearchResult | nul
 
   return (
     <div className="flex flex-col items-center justify-center h-auto mt-10">
-      <div className="flex gap-[50px]">
+      <div className="flex gap-[10px] lg:gap-[50px]">
         <Badge className="bg-[#45bde9]" content={results.matchedProducts.length}>
           <Button onClick={() => setShowProducts(true)}>{t("search-modal-products-title")}</Button>
         </Badge>

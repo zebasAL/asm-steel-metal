@@ -1,4 +1,7 @@
 {
+  "meta_lang": "es",
+  "title": "404 Pagina no encontrada",
+  "description": "Ooops! Parece que no existe la busqueda realizada.",
   "categories": "Categorias",
   "variable-example": "Usando una variable {{count}}",
   "name": "Nombre",

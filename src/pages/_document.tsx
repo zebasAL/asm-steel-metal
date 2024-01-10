@@ -3,46 +3,12 @@ import Script from "next/script";
 import useTranslation from "next-translate/useTranslation";
 
 export default function Document() {
-  const { lang } = useTranslation()
+  const { t } = useTranslation("common")
 
   return (
-    <Html lang={lang ?? "es"}>
+    <Html lang={t("meta_lang") ?? "es"}>
       <Head>
-        <meta
-          name="description"
-          content={
-            lang === "es"
-              ? "Somos comercializadores de aceros especiales y metales para la industria. Con años de experiencia en el sector, hemos consolidado nuestra posición como un socio confiable, rentable y comprometido con la excelencia."
-              : "We are distributors of special steels and metals for the industry. With years of experience in the sector, we have consolidated our position as a reliable, profitable, and committed partner to excellence."
-          }
-        />
-        <meta name="keywords" content={`asm, steel, metal, acero, asm - steel metal, asm steel-metal`} />
-        <link rel="icon" href="/favicon.ico" />
-        {/* Facebook y General */}
-        <meta property="og:title" content="ASM - STEEL METAL" />
-        <meta property="og:type" content="website" />
         <meta property="og:image" content="/android-chrome-512x512.png" />
-        <meta
-          name="og:description"
-          content={
-            lang === "es"
-              ? "Somos comercializadores de aceros especiales y metales para la industria. Con años de experiencia en el sector, hemos consolidado nuestra posición como un socio confiable, rentable y comprometido con la excelencia."
-              : "We are distributors of special steels and metals for the industry. With years of experience in the sector, we have consolidated our position as a reliable, profitable, and committed partner to excellence."
-          }
-        />
-        {/* Twitter */}
-        <meta name="twitter:card" content="/android-chrome-512x512.png" />
-        <meta property="twitter:domain" content={`${process.env.VERCEL_URL}`} />
-        <meta name="twitter:title" content="ASM - STEEL METAL" />
-        <meta property="twitter:image" content="/android-chrome-512x512.png" />
-        <meta
-          name="twitter:description"
-          content={
-            lang === "es"
-              ? "Somos comercializadores de aceros especiales y metales para la industria. Con años de experiencia en el sector, hemos consolidado nuestra posición como un socio confiable, rentable y comprometido con la excelencia."
-              : "We are distributors of special steels and metals for the industry. With years of experience in the sector, we have consolidated our position as a reliable, profitable, and committed partner to excellence."
-          }
-        />
       </Head>
       <body className="antialiased">
 

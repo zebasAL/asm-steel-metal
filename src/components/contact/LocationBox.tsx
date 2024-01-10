@@ -16,11 +16,11 @@ export default function LocationBox ({ title, address, selected = false, phone, 
     <Button
       onClick={onClick}
       ripple={!selected}
-      className={`group max-w-md user- ${selected ? 'cursor-auto' : ''} ${selected ? '' : 'bg-transparent'} bg-opacity-90 ${selected ? '' : 'hover:bg-gray-500 hover:bg-opacity-40'} z-10 rounded-[15px] p-5`}
+      className={`group max-w-md m-auto user- ${selected ? 'cursor-auto' : ''} ${selected ? '' : 'bg-transparent'} bg-opacity-90 ${selected ? '' : 'hover:bg-gray-500 hover:bg-opacity-40'} z-10 rounded-[15px] p-2 md:p-5`}
     >
-      <h2 style={{ userSelect: 'text' }} className="text-2xl font-bold text-primary-500 mb-2">{title}</h2>
-      <p style={{ userSelect: 'text' }} className="text-md text-gray-200 mb-4">{address}</p>
-      <p style={{ userSelect: 'text' }} className="mb-4">{phone ? phone : null}</p>
+      <h2 style={{ userSelect: 'text' }} className="text-2xl font-bold text-primary-500 mb-2 break-word">{title}</h2>
+      <p style={{ userSelect: 'text' }} className="text-md text-gray-200 mb-4 break-word">{address}</p>
+      <p style={{ userSelect: 'text' }} className="mb-4 break-word">{phone ? phone : null}</p>
       <a href="#" className="inline-flex items-center text-primary-500 font-medium">
         {selected ? contactT("selected") : contactT("select")}
         

@@ -41,6 +41,7 @@ module.exports = {
     "react/display-name": 2,
     "@typescript-eslint/no-inferrable-types": 2,
     "@typescript-eslint/no-explicit-any": 0,
+    "@next/next/no-img-element": 0,
     "@typescript-eslint/no-empty-function": 0,
   }
 };

@@ -7,14 +7,14 @@ export default function Categories({ categories }: { categories: CategoryProduct
   const { t } = useTranslation('home')
 
   return (
-    <div>
-      <h3 className="text-4xl text-center mt-20">
+    <div className="m-2 sm:m-4 md:m-6 lg:m-8">
+      <h3 className="text-3xl sm:text-4xl text-center mt-20">
         {t('categories')}
       </h3>
-  
-      <div className="w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400">        
-  
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 justify-center">
+
+      <div className="w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
           {(categories ?? []).map((category, index) => (
             <Link key={index} href={`/categories/${category.categoryName}`}>
               <CardLarge
@@ -26,7 +26,7 @@ export default function Categories({ categories }: { categories: CategoryProduct
             </Link>
           ))}
         </div>
-        
+
       </div>
     </div>
   );

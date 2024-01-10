@@ -1,10 +1,10 @@
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import { useState } from "react";
-import { Button } from "@material-tailwind/react";
-import DropDownModal from "./DropDownModal"
+import { Button, Typography, ListItem } from "@material-tailwind/react";
 import { CategoryProduct } from "~/mock/products/categoryProducts";
 import { donwloadFile } from "~/utils/downloadPDF"
+import DropDownModal from "./DropDownModal"
 
 type Props = {
   options: CategoryProduct[],
@@ -30,36 +30,65 @@ export default function DropDownList({ options }: Props) {
   }
 
   return (
-
     <div className="flex items-center justify-center gap-10">
-      <Link href={'/contact'} onMouseEnter={handleCloseModel} className="z-10">
-        {t("contact-us")}
-      </Link>
+      <ListItem className="w-[unset]" style={{ width: "unset" }}>
+        <Typography
+          as="p"
+          variant="small"
+          color="blue-gray"
+          className={`w-[unset] flex items-center font-medium text-gray-900 ${openModal && "text-gray-500"} cursor-pointer z-10 flex items-center justify-cent`}
+        >
+          <Link href={'/'} onMouseEnter={handleCloseModel} className="w-[auto] z-10 text-[#1baee6]">
+            <span className="w-[auto] text-center">{t("home")}</span>
+          </Link>
+        </Typography>
+      </ListItem>
+
+      <ListItem className="w-[unset]" style={{ width: "unset" }}>
+        <Typography
+          as="p"
+          variant="small"
+          color="blue-gray"
+          className={`flex items-center font-medium text-gray-900 ${openModal && "text-gray-500"} cursor-pointer z-10 flex items-center justify-cent`}
+        >
+          <Link href={'/contact'} onMouseEnter={handleCloseModel} className="w-[auto] z-10 text-[#1baee6]">
+            {t("contact-us")}
+          </Link>
+        </Typography>
+      </ListItem>
 
       <div className="flex gap-5">
-        <div>
-          <div onMouseEnter={handleOpenModal} id="doubleDropdown" className={`text-gray-900 ${openModal && "text-gray-500"} cursor-pointer z-10 flex items-center justify-cent`}>
-            <p className={`block py-2 px-3 dark:text-white ${openModal && "md:dark:text-blue-500 dark:bg-gray-700 dark:text-white md:dark:bg-transparent"}`}>
+        <ListItem onClick={handleOpenModal}>
+          <Typography
+            as="p"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className={`w-full felx items-center font-medium text-gray-900 ${openModal && "text-gray-500"} cursor-pointer z-10 flex items-center justify-cent`}
+          >
+            <span className="text-[#1baee6] flex items-center gap-2 select-none">
               {categories}
-            </p>
-            <svg xmlns="http://www.w3.org/2000/svg" className="border-none" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" className={`transition-all border-none ml-2 ${openModal ? "transform rotate-180" : ""}`} viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 8l7 7 7-7"></path>
             </svg>
-          </div>
-          <DropDownModal
-            title={categories}
-            options={options}
-            isOpen={openModal}
-            onClose={() => handleCloseModel()}
-          />
-        </div>
+          </Typography>
+        </ListItem>
+
+        <DropDownModal
+          title={categories}
+          options={options}
+          isOpen={openModal}
+          onClose={() => handleCloseModel()}
+        />
       </div>
 
       <Button
         onMouseEnter={handleCloseModel}
         onClick={handleDownloadPresentationLetter}
         variant="gradient"
-        className="flex items-center gap-3 z-10"
+        className="flex items-center gap-3 z-10 bg-[#282843]"
+        style={{ background: "#282843" }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -16,6 +16,11 @@ export default function Modal({ isOpen = false, onClose, children, id, className
   const contentRef = useRef<HTMLDivElement | null>(null);
   useClickOutSide(contentRef, onClose);
 
+  const handleEscKeyPress = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+      onClose();
+    }
+  };
 
   useEffect(() => {
     const modalContainer = document.createElement('div');
@@ -23,7 +28,11 @@ export default function Modal({ isOpen = false, onClose, children, id, className
     document.body.appendChild(modalContainer);
     modalContainerRef.current = modalContainer;
 
+    document.addEventListener('keydown', handleEscKeyPress);
+
     return () => {
+      document.removeEventListener('keydown', handleEscKeyPress);
+
       if (modalContainerRef.current) {
         document.body.removeChild(modalContainerRef.current);
       }

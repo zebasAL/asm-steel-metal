@@ -9,9 +9,9 @@ const getColumnsByBreakpoint = () => {
 
   if (typeof window === 'undefined') return 4
 
-  if (window.innerWidth < parseInt(sm)) {
-    return 1;
-  } else if (window.innerWidth < parseInt(md)) {
+  // if (window.innerWidth < parseInt(sm)) {
+  //   return ;
+  if (window.innerWidth < parseInt(md)) {
     return 2;
   } else if (window.innerWidth < parseInt(lg)) {
     return 3;
@@ -42,9 +42,9 @@ export default function ProductsCarrousel({ products, onClick }: { products: Pro
 
   useEffect(() => {
     const productsList = (productsGroup ?? []).map((group, index) => (
-      <div key={index} className="mx-[50px] grid gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 py-10">
+      <div key={index} className="mx-[10px] md:mx-[50px] grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-10">
         {group.map((product: ProductsByCategory["products"][0]) => (
-          <div key={product.name} onClick={() => onClick(product.name)} className="relative group h-96 w-full rounded-xl hover:shadow-lg hover:shadow-gray-500 transition group cursor-pointer">
+          <div key={product.name} onClick={() => onClick(product.name)} className="relative group h-[300px] lg:h-96 w-full rounded-xl hover:shadow-lg hover:shadow-gray-500 transition group cursor-pointer">
             <ImgWithBlurredCaption
               image={product.image}
               alt={`producto-${product.name}`}
@@ -69,12 +69,12 @@ export default function ProductsCarrousel({ products, onClick }: { products: Pro
       ? (
         <Carousel
           loop
-          autoplay
-          autoplayDelay={5000}
+          // autoplay
+          // autoplayDelay={10000}
           color="black"
           key={0}
           navigation={({ setActiveIndex, activeIndex, length }) => (
-            <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+            <div className="absolute bottom-4 left-2/4 flex -translate-x-2/4 gap-2">
               {new Array(length).fill("").map((_, i) => (
                 <span
                   itemID="tabs"

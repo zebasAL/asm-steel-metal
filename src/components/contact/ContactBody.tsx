@@ -37,9 +37,9 @@ export default function ContactBody({ location }: { location: Address | null }) 
   }
 
   return (
-    <section className="flex p-10 w-full">
+    <section className="flex flex-col md:flex-row p-2 sm:p-3 md:p-5 lg:p-10 w-full ">
 
-      <form onSubmit={handleSubmit(onSubmit)} className="w-1/2">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full md:w-1/2">
         <div className="flex flex-col items-center">
           <div className="p-10 pt-0 m-auto max-w-xl w-full">
             <div>
@@ -86,6 +86,7 @@ export default function ContactBody({ location }: { location: Address | null }) 
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          className="w-auto md:w-1/2 h-1/2 md:h-auto"
         />
       )}
     </section>

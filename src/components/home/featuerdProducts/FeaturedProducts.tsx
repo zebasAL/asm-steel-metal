@@ -25,12 +25,10 @@ export default function FeaturedProducts({ products }: { products: ProductsByCat
   }, [lang])
 
   return (
-    //  blue  <div className="relative backdrop-blur-20 bg-gradient-to-r from-blue-50 via-white to-white py-[100px]">
-    //  normal  <div className="relative backdrop-blur-20 bg-gradient-to-r from-black via-gray-300 to-white py-[100px]">
-    <div className="relative backdrop-blur-20 bg-gradient-to-r from-gray-300 via-gray-50 to-white py-[100px]">
+    <div className="relative backdrop-blur-20 bg-gradient-to-r from-gray-300 via-gray-50 to-white py-0 md:py-[100px]">
 
-      <div className="flex flex-col md:flex-row items-center text-sm font-medium text-gray-500 dark:text-gray-400 pb-[40px] md:pb-[100px] mx-1 sm:mx-20">
-        <h3 className="text-2xl lg:text-4xl text-center md:text-left items-center text-black w-auto whitespace-normal md:whitespace-nowrap">
+      <div className="flex flex-col lg/2:flex-row items-center text-sm font-medium text-gray-500 dark:text-gray-400 pb-[40px] md:pb-[100px] mx-[10px] sm:mx-20">
+        <h3 className="mt-10 lg:mt-0 text-2xl md:text-3xl lg:text-4xl mb-[0] sm:mb-[20px] md:mb-[50px] text-center md:text-left items-center text-black w-auto whitespace-normal md:whitespace-nowrap">
           {t('featured-products')}
         </h3>
 
@@ -38,7 +36,8 @@ export default function FeaturedProducts({ products }: { products: ProductsByCat
           {products.map((product) => (
             <div key={product.title}>
               <Button
-                className={`${product?.title === selectedProducts?.title ? 'text-black shadow-sm drop-shadow-sm bg-gray-300' : ''}`}
+                style={{  boxShadow: "none" }}
+                className={`${product?.title === selectedProducts?.title ? 'bg-[transparent] text-[#1baee6] shadow-none' : 'text-[#ffff] bg-[#282843] shadow-sm drop-shadow-sm'}`}
                 onClick={() => handleSetProducts(product)}
               >
                 {product.title}
@@ -53,7 +52,7 @@ export default function FeaturedProducts({ products }: { products: ProductsByCat
         onClick={handleClickProduct}
       />
 
-      <div>
+      <div className="hidden md:block">
         <div
           className="absolute z-1 bottom-0 left-0 h-[60px] w-1/2 bg-gradient-to-r from-gray-700 via-gray-300 to-white bg-opacity-100 backdrop-blur-20"
           style={{
