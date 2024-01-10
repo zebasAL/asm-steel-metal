@@ -7,9 +7,7 @@ export default function Document() {
 
   return (
     <Html lang={t("meta_lang") ?? "es"}>
-      <Head>
-        <meta property="og:image" content="/android-chrome-512x512.png" />
-      </Head>
+      <Head />
       <body className="antialiased">
 
         {/* <!-- Your Chat plugin code --> */}
