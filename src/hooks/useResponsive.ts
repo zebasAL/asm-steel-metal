@@ -16,7 +16,7 @@ export const breakpoints = {
   xl: '1440px',
 }
 
-const getMediaQuery = (query: Query, initial: Value, end?: Value) => {
+export const getMediaQuery = (query: Query, initial: Value, end?: Value) => {
   const initialWidth = initial ? `${typeof initial === 'number' ? initial + 'px' : breakpoints[initial]}` : '';
   const maxWidth = end ? `${typeof end === 'number' ? end + 'px' : breakpoints[end]}` : '';
 
@@ -38,7 +38,7 @@ const getMediaQuery = (query: Query, initial: Value, end?: Value) => {
 
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-export default function useResponsive(defaultValue: boolean, query: Query, initial: Value, end?: Value): ReturnType {
+export default function useResponsive(defaultValue: boolean | null, query: Query, initial: Value, end?: Value): ReturnType {
   const [matchMedia, setMatchMedia] = useState<boolean>(defaultValue ?? false)
 
   useIsomorphicLayoutEffect(() => {

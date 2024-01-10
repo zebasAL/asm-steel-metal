@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import useResponsive from "~/hooks/useResponsive";
+import { useState, useEffect } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import VideoPlayer from "../ui/VideoPlayer";
 import slideShowStyles from "~/styles/slideshowText.module.css"
 import Image from 'next/image';
 
 export default function Hero() {
-  const isSmall = useResponsive(false, 'down', 'sm')
-
-  if (isSmall) return null
+  const { lang } = useTranslation()
 
   return (
     <>
@@ -80,21 +78,20 @@ export default function Hero() {
     > */}
       {/* <VideoPlayer src={"/videos/ASM_Drone.mp4"} /> */}
 
-        <div>
-          <h1
-            className="absolute animate-fade-in-left animate-once text-white text-6xl top-[40%] font-bold"
-            style={{ left: "40px", textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', fontSize: "60px" }}
-          >
-            LO MEJOR EN
+      <div>
+        <h1
+          className="absolute animate-fade-in-left animate-once text-white text-6xl top-[20%] sm:top-[30%] lg:top-[40%] left-[10px] sm:left-[20px] md:left-[30px] lg:left-[40px] text-[20px] sm:text-[20px] md:text-[40px] lg:text-[60px] font-bold"
+          style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+        >
+          {lang === "es" ? "LO MEJOR EN" : "THE BEST IN"}
           <SlideShowText />
+        </h1>
+      </div>
 
-          </h1>
-        </div>
-
-        <div className="absolute flex" style={{ top: "80px", right: "20px" }}>
-          <Image width={300} height={300} src="/images/certificacion.png" alt="Bureau Veritas Certification" style={{ width: "300px", height: "200px" }} />
-          <Image width={100} height={100} src="/images/hardox_logo.png" alt="Hardox logo" className="m-auto" style={{ width: "100px", height: "100px" }} />
-        </div>
+      <div className="absolute flex flex-col sm:flex-row right-0 sm:right-[20px] top=[30px] sm:top-[80px]">
+        <Image width={300} height={300} src="/images/certificacion.png" alt="Bureau Veritas Certification"className='w-[75px] h-[50px] sm:w-[180px] sm:h-[130px] lg:w-[300px] lg:h-[200px]' />
+        <Image width={100} height={100} src="/images/hardox_logo.png" alt="Hardox logo" className='m-auto w-[25px] h-[25px] sm:w-[60px] sm:h-[60px] lg:w-[100px] lg:h-[100px]' />
+      </div>
 
       <VideoPlayer src={"https://i.imgur.com/3nc1jty.mp4"} />
 
@@ -112,29 +109,23 @@ export default function Hero() {
 // ----------------------------------------------------------
 
 const SlideShowText = () => {
-  const [words, setWords] = useState(["PRECIOS", "CALIDAD", "SERVICIO"]);
+  const { lang } = useTranslation()
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setWords(prevWords => {
-  //       const newWords = [...prevWords];
-  //       newWords.push(newWords.shift());
-  //       return newWords;
-  //     });
-  //   }, 1000); // Cambia la duración del intervalo según sea necesario
+  const [words, setWords] = useState(lang === "es" ? ["PRECIOS", "CALIDAD", "SERVICIO"] : ["PRICES", "QUALITY", "SERVICE"]);
 
-  //   return () => clearInterval(intervalId);
-  // }, []);
+  useEffect(() => {
+    setWords(lang === "es" ? ["PRECIOS", "CALIDAD", "SERVICIO"] : ["PRICES", "QUALITY", "SERVICE"])
+  }, [lang]);
 
   return (
     <div className={slideShowStyles.words} style={{ color: "#45bde9", fontSize: "60px", height: "80px" }}>
-      <span>
+      <span className="sm:left-[20px] md:left-[30px] lg:left-[40px] text-[20px] sm:text-[20px] md:text-[40px] lg:text-[60px]">
         {words[0]}
       </span>
-      <span className="hidden">
+      <span className="hidden sm:left-[20px] md:left-[30px] lg:left-[40px] text-[20px] sm:text-[20px] md:text-[40px] lg:text-[60px]">
         {words[1]}
       </span>
-      <span className="hidden">
+      <span className="hidden sm:left-[20px] md:left-[30px] lg:left-[40px] text-[20px] sm:text-[20px] md:text-[40px] lg:text-[60px]">
         {words[2]}
       </span>
     </div>

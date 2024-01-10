@@ -1,4 +1,7 @@
 {
+  "meta_lang": "en",
+  "404_title": "404 Not Found",
+  "404_description": "Whoops! That page doesn’t exist.",
   "categories": "Categories",
   "variable-example": "Using a variable {{count}}",
   "name": "Name",

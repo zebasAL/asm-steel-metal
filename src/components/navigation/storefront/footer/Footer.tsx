@@ -6,10 +6,10 @@ export default function Footer() {
   const { t } = useTranslation('footer');
 
   return (
-    <footer className="bg-white dark:bg-gray-900">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className="bg-white dark:bg-gray-900 text-center md:text-left">
+      <div className="mx-auto w-full max-w-screen-xl md:px-2 lg:px-20 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
+          <div className="mb-6 md:mb-0 flex flex-col items-center md:items-center">
 
             <Image src={logoASM} alt="logo" height={150} width={150} className="mb-7" />
 
@@ -59,7 +59,18 @@ export default function Footer() {
                     href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}/?text=Hola.%20Estoy%20interesado%20en%20comprar`}
                     title={`whatsapp`}
                   >
-                    {process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ""}
+                    {`Queretaro - ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` ?? ""}
+                  </a>
+                </li>
+                <li className="mb-4 underline">
+                  <a
+                    className="hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}/?text=Hola.%20Estoy%20interesado%20en%20comprar`}
+                    title={`whatsapp`}
+                  >
+                    {`Tlanepantla - ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER_SECONDARY}` ?? ""}
                   </a>
                 </li>
                 <li>

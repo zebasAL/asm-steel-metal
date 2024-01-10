@@ -59,7 +59,7 @@ export default function PostList({
         )}>
         <div
           className={cx(
-            " overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800"
+            " overflow-hidden rounded-md bg-gray-100 transition-all md:hover:scale-105   dark:bg-gray-800"
           )}>
           <Link
             className={cx(
@@ -115,7 +115,7 @@ export default function PostList({
       bg-no-repeat
       transition-[background-size]
       duration-500
-      hover:bg-[length:100%_3px]
+      md:hover:bg-[length:100%_3px]
       group-hover:bg-[length:100%_10px]
       dark:from-purple-800 dark:to-purple-900">
                   {product.name}

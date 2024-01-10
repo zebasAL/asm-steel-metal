@@ -1,7 +1,8 @@
 import { m } from 'framer-motion';
+import { Fragment } from 'react';
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/legacy/image';
-import { MotionViewport, varFade } from '~/components/animate';
+import { varFade } from '~/components/animate';
 
 
 export default function Content() {
@@ -30,7 +31,7 @@ export default function Content() {
             <Image
               layout='fill'
               src="/asm-front.jpg"
-              className="w-full object-cover scale-[1.15]"
+              className="w-full object-cover scale-[1.30]"
             />
           </div>
 
@@ -71,11 +72,16 @@ function Description() {
         </h2>
       </m.div>
 
-      <m.div variants={varFade().inUp}>
+      {/* <m.div variants={varFade().inUp}> */}
         <p>
-          {t('about-us-description')}
+          {t('about-us-description').split('\n').map((line, index) => (
+            <Fragment key={index}>
+              {line}
+              <br />
+            </Fragment>
+          ))}
         </p>
-      </m.div>
+      {/* </m.div> */}
     </div>
   );
 }

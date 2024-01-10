@@ -34,16 +34,18 @@ export default function LocalesDropDown() {
         <Button
           type="button"
           data-dropdown-toggle="language-dropdown-menu"
-          className="bg-transparent inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="bg-transparent inline-flex items-center font-medium justify-center px-2 sm:px-4 py-1 sm:py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
         >
           <Image
             alt="flag"
             width={25}
             height={25}
-            className="mr-5"
+            className="mr-0 sm:mr-5"
             src={lang === "en" ? usa_flag : mx_flag}
           />
-          {t(`locale_${lang}`)}
+          <p className="text-[#1baee6] hidden sm:block m-auto">
+            {t(`locale_${lang}`)}
+          </p>
         </Button>
       </MenuHandler>
 
@@ -63,7 +65,7 @@ export default function LocalesDropDown() {
                 className="mr-5"
                 src={locale === "en" ? usa_flag : mx_flag}
               />
-              <p className="text-lg">{t(`locale_${locale}`)}</p>
+              <p className="text-lg text-[#1baee6]">{t(`locale_${locale}`)}</p>
             </div>
           </MenuItem>
         ))}

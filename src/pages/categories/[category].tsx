@@ -29,7 +29,7 @@ export default function Category({ category, products }: { category: Omit<Catego
       </Head>
       <MainLayout>
         <main className="p-20">
-          <Typography variant="h1" color="blue" className="mb-10">{category.categoryName}</Typography>
+          <Typography variant="h1" color="blue" className="mb-10 text-2xl sm:text-4xl">{category.categoryName}</Typography>
 
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10">
             {products.slice(0, 2).map(product => (

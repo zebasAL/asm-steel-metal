@@ -6,6 +6,7 @@ import ConfirmModal from "./ConfirmModal"
 import CardImage from "./CardImage"
 import CardLarge from "./CardLarge"
 import ImgWithBlurredCaption from "./ImgWithBlurredCaption"
+import WhatsappIcon from "./WhatsappIcon"
 
 
 
@@ -18,4 +19,5 @@ export {
   CardImage,
   CardLarge,
   ImgWithBlurredCaption,
+  WhatsappIcon,
 }
