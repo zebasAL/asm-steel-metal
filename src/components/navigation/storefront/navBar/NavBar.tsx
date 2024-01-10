@@ -5,7 +5,7 @@ import Link from "next/link";
 import DropDownList from "./dropDown";
 import LocalesDropDown from "./LocalesDropDown";
 import SearchBar from "../../searchbar";
-import logoASM from "~/images/mid_logo.png";
+import logoASM from "~/images/full_logo.png";
 import useOffSetTop from "~/hooks/useOffSetTop";
 import useScrollDirection from "~/hooks/useScrollDirection";
 import categoryProducts, { CategoryProducts, CategoryProduct } from "~/mock/products/categoryProducts";
@@ -49,7 +49,7 @@ export default function NavBar() {
       >
         <div className="hidden lg:flex items-center justify-between h-16">
           <Link href={'/'}>
-            <Image src={logoASM} alt="logo" height={150} width={150} />
+            <Image src={logoASM} alt="logo" height={120} width={120} />
           </Link>
 
           <DropDownList options={navItems} />

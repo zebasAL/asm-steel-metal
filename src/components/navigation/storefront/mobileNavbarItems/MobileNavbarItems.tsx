@@ -12,8 +12,7 @@ import {
   Card,
 } from "@material-tailwind/react";
 import useTranslation from "next-translate/useTranslation";
-import logoASM from "~/images/small_logo.png";
-import logoMidASM from "~/images/mid_logo.png";
+import logoASM from "~/images/full_logo.png";
 import Link from "next/link";
 import Image from "next/image";
 import LocalesDropDown from "../navBar/LocalesDropDown";
@@ -21,7 +20,6 @@ import SearchTextField, { SearchResult } from "~/components/navigation/searchbar
 import SearchResults from "~/components/navigation/searchbar/SearchResults";
 import { CategoryProduct } from "~/mock/products/categoryProducts";
 import { donwloadFile } from "~/utils/downloadPDF"
-import { MOBILE_HEADER } from "~/config"
 
 type MobileBar = {
   navItems: CategoryProduct[],
@@ -55,7 +53,7 @@ export default function MobileNavbarItems({ navItems }: MobileBar) {
     <div className="p-[13px] w-full h-full">
       <div className="flex justify-between items-center w-full h-full">
         <Link href={'/'}>
-          <Image src={logoMidASM} alt="logo" height={150} width={150} className="w-[100px] sm:w-[150px]" />
+          <Image src={logoASM} alt="logo" height={150} width={150} className="w-[80px] sm:w-[100px]" />
         </Link>
 
         <LocalesDropDown />
