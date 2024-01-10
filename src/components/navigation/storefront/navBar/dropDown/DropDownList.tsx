@@ -31,7 +31,7 @@ export default function DropDownList({ options }: Props) {
 
   return (
     <div className="flex items-center justify-center gap-10">
-      <ListItem className="w-[unset]" >
+      <ListItem className="w-[unset]" style={{ width: "unset" }}>
         <Typography
           as="p"
           variant="small"
@@ -39,12 +39,12 @@ export default function DropDownList({ options }: Props) {
           className={`w-[unset] flex items-center font-medium text-gray-900 ${openModal && "text-gray-500"} cursor-pointer z-10 flex items-center justify-cent`}
         >
           <Link href={'/'} onMouseEnter={handleCloseModel} className="w-[auto] z-10 text-[#1baee6]">
-            {t("home")}
+            <span className="w-[auto] text-center">{t("home")}</span>
           </Link>
         </Typography>
       </ListItem>
 
-      <ListItem className="w-[unset]" >
+      <ListItem className="w-[unset]" style={{ width: "unset" }}>
         <Typography
           as="p"
           variant="small"
