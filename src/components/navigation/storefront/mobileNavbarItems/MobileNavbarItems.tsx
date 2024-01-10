@@ -118,7 +118,7 @@ export default function MobileNavbarItems({ navItems }: MobileBar) {
                 as="p"
                 variant="small"
                 color="blue-gray"
-                className={`flex items-center font-medium text-gray-900 cursor-pointer z-10 flex items-center justify-center`}
+                className={`font-medium text-gray-900 cursor-pointer z-10 flex items-center justify-center`}
               >
                 <Link href={'/'} className="w-[unset] z-10 text-[#1baee6] h-auto m-auto">
                   <span>{t("home")}</span>
@@ -131,7 +131,7 @@ export default function MobileNavbarItems({ navItems }: MobileBar) {
                 as="p"
                 variant="small"
                 color="blue-gray"
-                className={`flex items-center font-medium text-gray-900 cursor-pointer z-10 flex items-center justify-cent`}
+                className={`font-medium text-gray-900 cursor-pointer z-10 flex items-center justify-cent`}
               >
                 <Link href={'/contact'} className="w-[auto] z-10 text-[#1baee6]">
                   <span>{t("contact-us")}</span>
