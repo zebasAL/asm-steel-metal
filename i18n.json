@@ -2,7 +2,7 @@
   "locales": ["en", "es"],
   "defaultLocale": "es",
   "pages": {
-    "*": ["common", "navbar", "footer"],
+    "rgx:^/(?!admin/dashboard)": ["common", "navbar", "footer"],
     "/": ["home"],
     "/contact": ["contact"],
     "/products/[name]": ["products"]

@@ -30,7 +30,7 @@ export default function Content() {
           <div className="relative z-[-1]">
             <Image
               layout='fill'
-              src="/asm-front.jpg"
+              src="/asm-front.png"
               className="w-full object-cover scale-[1.30]"
             />
           </div>
