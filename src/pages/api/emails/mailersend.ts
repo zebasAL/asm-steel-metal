@@ -25,7 +25,7 @@ export default async function mailersend(req: NextApiRequest, res: NextApiRespon
 
         const sentFrom = new Sender("contacto@asm-steelmetal.com", "Contacto ASM Steel Metal");
         const recipients = [
-          new Recipient(process.env.MAILERSEND_SENDER, "Contacto ASM1"),
+          new Recipient(process.env.MAILERSEND_SENDER ?? "desarrollo@asm-steelmetal.com", "Contacto ASM1"),
         ];
         
         const emailParams = new EmailParams()
