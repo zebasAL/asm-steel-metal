@@ -161,8 +161,8 @@ export default function MobileNavbarItems({ navItems }: MobileBar) {
                   </AccordionHeader>
                 </ListItem>
                 {item.products.map((product) => (
-                  <Link href={`/products/${product.name}`}>
-                    <AccordionBody className="py-1" key={product.name}>
+                  <Link href={`/products/${product.name}`} key={product.name}>
+                    <AccordionBody className="py-1">
                       <List className="p-0">
                         <ListItem className="group">
                           <div className="cursor-pointer rounded-md text-black hover:text-primary-lighter transition-all hover:pl-8">
