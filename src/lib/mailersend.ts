@@ -26,7 +26,7 @@ export default async function mailersend(req: NextApiRequest, res: NextApiRespon
 
         const recipients = [new Recipient("zebastianalc@gmail.com", "Sebastian Almeida")];
         const emailParams = new EmailParams()
-          .setFrom({ email: "zebastian_al@hotmail.com", name: "Sebastian" })
+          .setFrom({ email: "desarrollo@asm-steelmetal.com", name: "desarrollo" })
           .setTo(recipients)
           .setSubject("Subject")
           .setHtml("Greetings from the team, you got this message through MailerSend.")
