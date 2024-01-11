@@ -1,4 +1,4 @@
-const nextTranslate = require('next-translate-plugin')
+const nextTranslate = require('next-translate-plugin');
 
 module.exports = nextTranslate({
   // eslint: {
@@ -66,9 +66,21 @@ module.exports = nextTranslate({
             },
           },
         ],
+      },
+      {
+        test: /\.(mp4|webm)$/i, // Agrega formatos de video según tus necesidades
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'static/videos', // Carpeta de salida en la construcción
+              publicPath: '/_next/static/videos', // Ruta pública para acceder a los archivos
+            },
+          },
+        ],
       }
     );
 
     return config;
   },
-});
+})
