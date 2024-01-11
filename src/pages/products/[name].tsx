@@ -11,7 +11,7 @@ import { donwloadFile } from "~/utils/downloadPDF";
 import MainLayout from "~/components/layouts/MainLayout";
 
 export default function ProductPage({ product, locale }: { product: Product, locale: string }) {
-  const { t } = useTranslation("products")
+  const { t, lang } = useTranslation("products")
 
   return (
     <>
@@ -25,15 +25,15 @@ export default function ProductPage({ product, locale }: { product: Product, loc
         <meta property="og:description" content={product.description} />
         <meta property="og:type" content="product" />
         <meta property="og:image" content={`${process.env.VERCEL_URL}/${product.image}`} />
-        <meta property="og:image" content={`${process.env.VERCEL_URL}/${product.image}`} />
-        <meta property="og:url" content={`${process.env.VERCEL_URL}/products/${product.name}`} />
+        <meta property="og:image:alt" content={product.name} />
+        <meta property="og:url" content={`${process.env.VERCEL_URL}${lang === "en" ? "/en/" : "/"}products/${product.name}`} />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={product.name} />
         <meta name="twitter:description" content={product.description} />
         <meta name="twitter:image" content={product.image} />
         <meta property="twitter:domain" content={`${process.env.VERCEL_URL}`} />
-        <meta property="twitter:url" content={`${process.env.VERCEL_URL}/products/${product.name}`} />
+        <meta property="twitter:url" content={`${process.env.VERCEL_URL}${lang === "en" ? "/en/" : "/"}products/${product.name}`} />
       </Head>
       <MainLayout>
       <main className="mx-0.5 sm:mx-2 md:mx-10 my-[100px]">

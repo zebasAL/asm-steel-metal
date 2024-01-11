@@ -14,10 +14,10 @@ export default function Custom404() {
             <div className="mx-auto text-center">
               <Image className="mx-auto mb-4" src={Image404} alt="404 Not Found" />
                 <h1 className="mb-4 text-primary-600 font-bold text-2xl leading-8">
-                  {t("title")}
+                  {t("404_title")}
                 </h1>
                 <p className="mb-8 text-gray-700 dark:text-gray-500 text-lg leading-6">
-                  {t("description")}
+                  {t("404_description")}
                 </p>
             </div>
           </div>

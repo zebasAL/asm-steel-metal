@@ -18,11 +18,12 @@ export default function Category({ category, products }: { category: Omit<Catego
         <meta property="og:description" content={category.categoryDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${process.env.VERCEL_URL}/${products[0]?.image}`} />
-        <meta property="og:url" content={`${process.env.VERCEL_URL}/${products[0]?.name}`} />
+        <meta property="og:image:alt" content={category.categoryName} />
+        <meta property="og:url" content={`${process.env.VERCEL_URL}/categories/${category.categoryName}`} />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content={`${process.env.VERCEL_URL}`} />
-        <meta property="twitter:url" content={`${process.env.VERCEL_URL}/${products[0]?.name}`} />
+        <meta property="twitter:url" content={`${process.env.VERCEL_URL}/categories/${category.categoryName}`} />
         <meta name="twitter:title" content={`ASM - STEEL METAL: ${category.categoryName}`} />
         <meta name="twitter:description" content={category.categoryDescription} />
         <meta property="twitter:image" content={`${process.env.VERCEL_URL}/${products[0]?.name}`} />
