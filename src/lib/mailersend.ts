@@ -26,17 +26,18 @@ export default async function mailersend(req: NextApiRequest, res: NextApiRespon
 
         const recipients = [new Recipient("zebastianalc@gmail.com", "Sebastian Almeida")];
         const emailParams = new EmailParams()
-          .setFrom({ email: "zebastian_al@hotmail.com", name: "Sebastian" })
+          .setFrom({ email: "desarrollo@asm-steelmetal.com", name: "desarrollo" })
           .setTo(recipients)
           .setSubject("Subject")
-          .setHtml("Greetings from the team, you got this message through MailerSend.")
-          .setText("Greetings from the team, you got this message through MailerSend.");
+          .setHtml(formData.message)
+          // .setText("Greetings from the team, you got this message through MailerSend.");
 
         try {
           console.log("error")
           const response = await mailersend.email.send(emailParams);
           res.status(200).json({ success: true, response });
         } catch (error) {
+          console.log("error", error)
           res.status(500).json({ success: false, error: 'Internal Server Error', message: error });
         }
         break;

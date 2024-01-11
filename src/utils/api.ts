@@ -21,8 +21,8 @@ export const apiRoutes = {
     getAll: async <T>(params?: ApiParams) => await axios.get<T>('/api/products/', { params })
   },
   email: {
-    resend: {
-      send: async <T>(data?: T) => await axios.post<T>('/api/emails/resend/', data)
+    mailersend: {
+      send: async <T>(data?: T) => await axios.post<T>('/api/emails/mailersend/', data)
     }
   },
 }

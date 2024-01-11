@@ -10,6 +10,10 @@ export default function Login() {
         <meta name="description" content="Login ADMIN panel" />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta name="google" content="nositelinkssearchbox" />
+        <meta name="googlebot" content="noindex,nofollow" />
+        <meta name="robots" content="noindex,nofollow" />
       </Head>
       <main>
         <SignInForm />

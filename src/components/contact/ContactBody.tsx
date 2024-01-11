@@ -26,7 +26,7 @@ export default function ContactBody({ location }: { location: Address | null }) 
   })
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data: ContactFormData) => {
-    await apiRoutes.email.resend.send<ContactFormData>(data)
+    await apiRoutes.email.mailersend.send<ContactFormData>(data)
       .then(() => {
         toast.success("")
         reset()
