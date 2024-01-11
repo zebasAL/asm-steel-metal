@@ -33,7 +33,7 @@ export default function Document() {
           {`
         window.fbAsyncInit = function() {
           FB.init({
-            appId : 1092597915427318,
+            appId : ${process.env.META_APP_ID},
             xfbml : true,
             version : 'v18.0',
           });

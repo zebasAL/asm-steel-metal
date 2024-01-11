@@ -2,7 +2,6 @@ import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '~/pages/_app'
 import Head from "next/head";
 import Dashboard from '~/components/layouts/Dashboard'
-// import ProductsSection from "~/sections/admin/dashboard/products/ProductsSection"
 
 const ProductsPage: NextPageWithLayout = () => {
   return (

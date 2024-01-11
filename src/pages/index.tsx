@@ -20,7 +20,8 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
         {/* Facebook y General */}
         <meta property="og:title" content="ASM - STEEL METAL" />
         <meta name="og:description" content={t("meta_description")} />
-        <meta property="og:image" content="/asm-front.jpg" />
+        <meta property="og:image" content="/asm-front.png" />
+        <meta property="og:image:alt" content="ASM steel metal" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${process.env.VERCEL_URL}`} />
         {/* Twitter */}

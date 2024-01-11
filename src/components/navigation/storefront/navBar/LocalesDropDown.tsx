@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation'
-import { useRouter } from 'next/router';
 import { useState } from "react";
 import {
   Menu,
@@ -9,7 +8,7 @@ import {
   MenuItem,
   Button,
 } from "@material-tailwind/react";
-import setLanguage from 'next-translate/setLanguage'
+// import setLanguage from 'next-translate/setLanguage'
 import i18nConfig from '~/../i18n.json';
 import usa_flag from "public/usa.png";
 import mx_flag from "public/mexico.png";
@@ -17,11 +16,12 @@ import mx_flag from "public/mexico.png";
 export default function LocalesDropDown() {
   const { t, lang } = useTranslation('navbar')
   const [openMenu, setOpenMenu] = useState(false);
-  const route = useRouter()
 
   const handleChangeLocale = async (locale: string) => {
-    await setLanguage(locale)
-    route.push("/")
+    // await setLanguage(locale)
+    if (window !== undefined) {
+      window.location.href = lang === "en" ? "/" : "/en" ?? "/"
+    }
   }
 
   return (

@@ -57,10 +57,10 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
 
               <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-center">
                 {categoryProducts.products?.map((product) => (
-                  <div key={product.name} className="group cursor-pointer p-2 rounded-md text-black hover:bg-gray-100 transition-all hover:pl-8">
+                  <div key={product.name} className="group cursor-pointer rounded-md text-black hover:bg-gray-100 transition-all hover:pl-8">
                     <Link
                       href={`/products/${product.name}`}
-                      className="text-lg flex items-center justify-center"
+                      className="text-lg flex items-center justify-center p-2"
                     >
                       <Typography
                         variant="h6"
@@ -103,10 +103,6 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
                       >
                         <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
                           {" "}
-                          {/* {React.createElement(icon, {
-                                strokeWidth: 2,
-                                className: "h-6 text-gray-900 w-6",
-                              })} */}
                         </div>
                         <div>
                           <Typography
@@ -124,28 +120,6 @@ export default function DropDownModal({ options, isOpen, onClose, title }: DropD
                           </Typography>
                         </div>
                       </MenuItem>
-
-                      {/* <div
-                            key={item.categoryName}
-                            className="relative transition duration-300 ease-in bg-white min-h-[2rem] rounded-lg border-2 border-solid border-opacity-32 m-4 text-rgb-gray-600 text-sm hover:bg-gray-100 cursor-pointer"
-                            
-                          >
-                            <div className="relative flex items-center justify-between p-3 md:p-4 border-b rounded-t dark:border-gray-600">
-                              <h3 className="text-lg font-semibold dark:text-white z-10 text-outline-black">{item.categoryName}</h3>
-                            </div>
-                            <Image
-                              src={item.image}
-                              width={100}
-                              height={5}
-                              alt="image"
-                              layout="responsive"
-                              style={{ opacity: .5, zIndex: 0 }}
-                              className="h-full w-full max-h-[-webkit-fill-available] absolute left-0 top-0 rounded-t-lg object-contain"
-                            />
-                            <div className="relative p-3 md:p-4 space-y-4 z-20">
-                              <p className="text-sm leading-relaxed text-black dark:text-gray-400">{item.categoryDescription}</p>
-                            </div>
-                          </div> */}
                     </div>
                   ))}
                 </ul>

@@ -16,9 +16,12 @@ export default function index() {
         <meta name="robots" content="index, follow" />
         {/* Facebook y General */}
         <meta property="og:title" content={t("meta_title")} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/android-chrome-512x512.png" />
         <meta name="og:description" content={`${lang === "es" ? "Ubicaciones" : "Locations"}: Queretaro ~ ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}, Tlanepantla ~ ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER_SECONDARY}`} />
+        <meta property="og:image" content="/android-chrome-512x512.png" />
+        <meta property="og:image:alt" content="Locations Image" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${process.env.VERCEL_URL}`} />
+        <meta property="fb:app_id" content={process.env.META_APP_ID} />
         {/* Twitter */}
         <meta name="twitter:title" content={t("meta_title")} />
         <meta name="twitter:description" content={`${lang === "es" ? "Ubicaciones" : "Locations"}: Queretaro ~ ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}, Tlanepantla ~ ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER_SECONDARY}`} />

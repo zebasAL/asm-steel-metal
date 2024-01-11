@@ -161,20 +161,22 @@ export default function MobileNavbarItems({ navItems }: MobileBar) {
                   </AccordionHeader>
                 </ListItem>
                 {item.products.map((product) => (
-                  <AccordionBody className="py-1" key={product.name}>
-                    <List className="p-0">
-                      <ListItem className="group">
-                        <div className="cursor-pointer rounded-md text-black hover:text-primary-lighter transition-all hover:pl-8">
-                          <Link href={`/products/${product.name}`} className="text-sm flex items-center justify-center transition-all group-hover:text-[#1baee6] group-hover:pl-[20px]">
-                            {product.name}
-                            <svg className="ml-2 my-auto w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                              <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                            </svg>
-                          </Link>
-                        </div>
-                      </ListItem>
-                    </List>
-                  </AccordionBody>
+                  <Link href={`/products/${product.name}`} key={product.name}>
+                    <AccordionBody className="py-1">
+                      <List className="p-0">
+                        <ListItem className="group">
+                          <div className="cursor-pointer rounded-md text-black hover:text-primary-lighter transition-all hover:pl-8">
+                            <div className="text-sm flex items-center justify-center transition-all group-hover:text-[#1baee6] group-hover:pl-[20px]">
+                              {product.name}
+                              <svg className="ml-2 my-auto w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </ListItem>
+                      </List>
+                    </AccordionBody>
+                  </Link>
                 ))}
               </Accordion>
             ))}

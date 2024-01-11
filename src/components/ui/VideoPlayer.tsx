@@ -6,10 +6,8 @@ export default function VideoPlayer({ src }: { src: string }) {
   const { lang } = useTranslation()
 
   useEffect(() => {
-    const videoElement = videoRef.current;
-
-    if (videoElement) {
-      videoElement.playbackRate = 2.0;
+    if (videoRef.current) {
+      videoRef.current.playbackRate = .8;
     }
   }, []);
 
