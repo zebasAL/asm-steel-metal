@@ -28,7 +28,7 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
         <meta name="twitter:title" content="ASM - STEEL METAL" />
         <meta name="twitter:description" content={t("meta_description")} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:image" content="/asm-front.jpg" />
+        <meta property="twitter:image" content="/asm-front.png" />
         <meta property="twitter:domain" content={`${process.env.VERCEL_URL}`} />
         <meta property="twitter:url" content={`${process.env.VERCEL_URL}/${lang === "es" ? "" : "en"}`} />
       </Head>
