@@ -1,10 +1,12 @@
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
 import { Typography } from "@material-tailwind/react";
 import PostList from "~/components/products/PostList"
 import categoryProducts, { CategoryProducts, CategoryProduct } from "~/mock/products/categoryProducts";
 import MainLayout from "~/components/layouts/MainLayout";
 
 export default function Category({ category, products }: { category: Omit<CategoryProduct, 'products'>, products: CategoryProduct["products"] }) {
+  const { t } = useTranslation("common") 
 
   return (
     <>
@@ -30,6 +32,8 @@ export default function Category({ category, products }: { category: Omit<Catego
       </Head>
       <MainLayout>
         <main className="p-20">
+          <Typography variant="h1" className="mb-10 text-2xl sm:text-4xl black">{t("categories").toUpperCase()}</Typography>
+
           <Typography variant="h1" color="blue" className="mb-10 text-2xl sm:text-4xl">{category.categoryName}</Typography>
 
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10">

@@ -1,5 +1,6 @@
 import categoryProducts, { CategoryProducts, CategoryProduct, Product } from "./products/categoryProducts";
 import productsByCategory, { FeaturedProductsByCategory, ProductsByCategories, ProductsByCategory } from "./products/featuredProducts";
+import sectionsProducts, { SectionProduct, Sections } from "./products/sections";
 
 export const getFeaturedProducts = () => {
   const transformedData: ProductsByCategories = { es: [], en: [] };
@@ -35,6 +36,44 @@ export const getFeaturedProducts = () => {
 
   return transformedData;
 };
+
+
+export const getFeaturedSections = () => {
+  const transformedData: any = { es: [], en: [] };
+
+  // Itera sobre cada idioma (es y en)
+  for (const lang in sectionsProducts) {
+    if (Object.prototype.hasOwnProperty.call(sectionsProducts, lang)) {
+      const sections = sectionsProducts[lang as keyof Sections];
+
+      // Itera sobre cada categoría en el idioma actual
+      for (const section of sections) {
+        const transformedCategory: { title: string, image: string, products: Product[] } = {
+          title: section.title,
+          image: section.image_primary,
+          products: [],
+        };
+
+        // Itera sobre cada producto en la categoría actual
+        for (const productName of section.products) {
+          // Busca la información del producto en el objeto productsInfo
+          const productInfo = findProductInfo(productName, categoryProducts[lang as keyof CategoryProducts]);
+
+          // Si se encuentra la información, agrégala a la categoría transformada
+          if (productInfo) {
+            transformedCategory.products.push(productInfo);
+          }
+        }
+
+        // Agrega la categoría transformada al idioma correspondiente
+        transformedData[lang as keyof Sections ?? 'es'].push(transformedCategory);
+      }
+    }
+  }
+
+  return transformedData;
+};
+
 
 
 const findProductInfo = (productName: string, products: CategoryProduct[]): Product | undefined => {
