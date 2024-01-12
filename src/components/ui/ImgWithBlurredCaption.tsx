@@ -1,5 +1,4 @@
 import { Typography } from "@material-tailwind/react";
-import Image from "next/image";
 
 type ImageCaption = {
   children?: React.ReactElement,
@@ -25,21 +24,21 @@ export default function ImgWithBlurredCaption({
   return (
     <div className="relative h-52	sm:h-64 md:h-80	lg:h-96 w-full rounded-xl cursor-pointer overflow-hidden flex items-center">
       <img
-        className={`absolute w-full rounded-xl object-contain object-center transition-transform transform group-hover:scale-110 block`}
+        className={`absolute w-full h-full rounded-xl object-contain object-center transition-transform transform group-hover:scale-110 block group-hover:${secondaryImage ? "hidden" : "block"}`}
         src={image}
         alt={alt ?? 'image-blurred'}
         {...imageProps}
       />
-      {/* {secondaryImage && (
+      {secondaryImage && (
         <img
           className="absolute w-full h-full rounded-xl object-contain object-center transition-transform transform group-hover:scale-110 hidden group-hover:block"
           src={secondaryImage}
           alt={alt ?? 'image-blurred'}
           {...imageProps}
         />
-      )} */}
+      )}
 
-      <figcaption style={{ background: "#1f1f33" }} className={`m-auto md:mx-0 w-[calc(100%-20px)] md:w-[calc(100%-4rem)] transition-all absolute bottom-1 md:bottom-8 left-2/4 flex flex-col -translate-x-2/4 justify-between rounded-lg border border-white bg-white/75 py-1 md:py-4 px-1 md:px-6 saturate-200 backdrop-blur-sm duration-300`}>
+      <figcaption style={{ background: "#1f1f33" }} className={`w-[calc(100%-20px)] m-auto md:mx-0 md:w-[calc(100%-4rem)]  transition-all absolute bottom-1 md:bottom-8 left-2/4 flex flex-col -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-1 md:py-4 px-1 md:px-6 saturate-200 backdrop-blur-sm duration-300`}>
         {description && (
           <Typography
             color="blue-gray"
@@ -54,7 +53,7 @@ export default function ImgWithBlurredCaption({
           </Typography>
         )}
 
-        <Typography variant="h5" color="blue-gray" className="text-sm md:text-base text-center m-auto text-[#fff]">
+        <Typography variant="h5" color="blue-gray" className="text-center m-auto text-[#fff]">
           {title}
         </Typography>
         {date && (
