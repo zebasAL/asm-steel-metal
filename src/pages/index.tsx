@@ -1,12 +1,13 @@
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
-import { Hero, FeaturedProducts, Categories, Content } from "~/components/home"
-import { getFeaturedProducts } from "~/mock/utils"
+import { Hero, FeaturedProducts, Categories, Content, Sections as SectionsComponent } from "~/components/home"
+// import { getFeaturedProducts } from "~/mock/utils"
 import { ProductsByCategories, ProductsByCategory } from "~/mock/products/featuredProducts"
+import sections, { Sections, SectionProduct } from "~/mock/products/sections"
 import categoryProducts, { CategoryProducts, CategoryProduct } from "~/mock/products/categoryProducts"
 import MainLayout from "~/components/layouts/MainLayout"
 
-export default function Home({ featuredProducts, navItems }: { featuredProducts: ProductsByCategory[], navItems: CategoryProduct[] }) {
+export default function Home({ sections, featuredProducts, navItems }: { sections: SectionProduct[], featuredProducts: ProductsByCategory[], navItems: CategoryProduct[] }) {
   const { t, lang } = useTranslation("home")
 
   return (
@@ -36,7 +37,9 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
         <main>
           <Hero />
 
-          <FeaturedProducts products={featuredProducts} />
+          <SectionsComponent sections={sections} />
+
+          {/* <FeaturedProducts products={featuredProducts} /> */}
 
           <Categories categories={navItems} />
 
@@ -50,8 +53,8 @@ export default function Home({ featuredProducts, navItems }: { featuredProducts:
 
 export async function getStaticProps({ locale }: { locale: string }) {
 
-  const featuredProducts = getFeaturedProducts();
-  const featuredProductsByLocale = featuredProducts[locale as keyof ProductsByCategories]
+  // const featuredProducts = getFeaturedProducts();
+  // const featuredProductsByLocale = featuredProducts[locale as keyof ProductsByCategories]
 
   const navItems = categoryProducts[locale as keyof CategoryProducts ?? 'es'].map((item => ({
     ...item,
@@ -63,7 +66,8 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
   return {
     props: { 
-      featuredProducts: featuredProductsByLocale,
+      sections: sections[locale as keyof Sections],
+      // featuredProducts: featuredProductsByLocale,
       navItems: navItems,
       locale,
      },

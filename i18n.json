@@ -5,6 +5,8 @@
     "rgx:^/(?!admin/dashboard)": ["common", "navbar", "footer"],
     "/": ["home"],
     "/contact": ["contact"],
-    "/products/[name]": ["products"]
+    "/products/[name]": ["products"],
+    "/sections/[section]": ["sections"],
+    "/categories/[category]": ["categories"]
   }
 }
