@@ -25,4 +25,9 @@ export const apiRoutes = {
       send: async <T>(data?: T) => await axios.post<T>('/api/emails/mailersend/', data)
     }
   },
+  files: {
+    getAll: async <T>(params?: ApiParams) => await axios.get<T>('/api/files/', { params }),
+    getById: async <T>(id?: string) => await axios.get<T>(`/api/files/${id}`),
+    create: async <T>(data: Buffer) => await axios.post<T>(`/api/files/`, data),
+  }
 }

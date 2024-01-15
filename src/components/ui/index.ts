@@ -7,8 +7,7 @@ import CardImage from "./CardImage"
 import CardLarge from "./CardLarge"
 import ImgWithBlurredCaption from "./ImgWithBlurredCaption"
 import WhatsappIcon from "./WhatsappIcon"
-
-
+import Breadcrumb from "./Breadcrumb"
 
 export {
   TabButton,
@@ -20,4 +19,5 @@ export {
   CardLarge,
   ImgWithBlurredCaption,
   WhatsappIcon,
+  Breadcrumb,
 }
