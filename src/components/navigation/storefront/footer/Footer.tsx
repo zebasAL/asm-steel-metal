@@ -107,7 +107,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col gap-5 m-auto items-center">
-              <Image width={150} height={150} src="/images/certificacion.png" alt="Bureau Veritas Certification" className="objet-cover" style={{ scale: "1.6" }} />
+              {/* <Image width={150} height={150} src="/images/certificacion.png" alt="Bureau Veritas Certification" className="objet-cover" style={{ scale: "1.6" }} /> */}
               <Image width={120} height={40} src="/images/hardox_logo.png" alt="Hardox logo" className="scale-150 objet-cover" style={{ height: "40px", objectFit: "cover" }} />
             </div>
 

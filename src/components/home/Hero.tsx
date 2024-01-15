@@ -89,7 +89,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute flex flex-col sm:flex-row right-0 sm:right-[20px] top=[30px] sm:top-[80px]">
-        <Image width={300} height={300} src="/images/certificacion.png" alt="Bureau Veritas Certification"className='w-[75px] h-[50px] sm:w-[180px] sm:h-[130px] lg:w-[300px] lg:h-[200px]' />
+        {/* <Image width={300} height={300} src="/images/certificacion.png" alt="Bureau Veritas Certification"className='w-[75px] h-[50px] sm:w-[180px] sm:h-[130px] lg:w-[300px] lg:h-[200px]' /> */}
         <Image width={100} height={100} src="/images/hardox_logo.png" alt="Hardox logo" className='m-auto w-[25px] h-[25px] sm:w-[60px] sm:h-[60px] lg:w-[100px] lg:h-[100px]' />
       </div>
 
